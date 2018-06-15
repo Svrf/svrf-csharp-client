@@ -1,4 +1,4 @@
-# IO.Swagger.Model.SuccessResponse
+# Svrf.Client.Model.SuccessResponse
 ## Properties
 
 Name | Type | Description | Notes

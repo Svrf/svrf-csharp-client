@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MediaStereo
+# Svrf.Client.Model.MediaStereo
 ## Properties
 
 Name | Type | Description | Notes

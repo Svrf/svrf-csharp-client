@@ -1,4 +1,4 @@
-# IO.Swagger.Model.AuthResponse
+# Svrf.Client.Model.AuthResponse
 ## Properties
 
 Name | Type | Description | Notes

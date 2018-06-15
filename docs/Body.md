@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Body
+# Svrf.Client.Model.Body
 ## Properties
 
 Name | Type | Description | Notes

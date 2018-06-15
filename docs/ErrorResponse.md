@@ -1,4 +1,4 @@
-# IO.Swagger.Model.ErrorResponse
+# Svrf.Client.Model.ErrorResponse
 ## Properties
 
 Name | Type | Description | Notes

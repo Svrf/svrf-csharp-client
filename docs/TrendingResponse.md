@@ -1,4 +1,4 @@
-# IO.Swagger.Model.TrendingResponse
+# Svrf.Client.Model.TrendingResponse
 ## Properties
 
 Name | Type | Description | Notes

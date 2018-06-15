@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MediaImages
+# Svrf.Client.Model.MediaImages
 ## Properties
 
 Name | Type | Description | Notes

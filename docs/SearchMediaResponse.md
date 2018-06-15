@@ -1,4 +1,4 @@
-# IO.Swagger.Model.SearchMediaResponse
+# Svrf.Client.Model.SearchMediaResponse
 ## Properties
 
 Name | Type | Description | Notes

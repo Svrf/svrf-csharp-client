@@ -1,4 +1,4 @@
-# IO.Swagger.Model.APIKey
+# Svrf.Client.Model.APIKey
 ## Properties
 
 Name | Type | Description | Notes

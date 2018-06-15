@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RateLimitResponse
+# Svrf.Client.Model.RateLimitResponse
 ## Properties
 
 Name | Type | Description | Notes

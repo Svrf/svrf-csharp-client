@@ -1,4 +1,4 @@
-# IO.Swagger.Api.AuthenticateApi
+# Svrf.Client.Api.AuthenticateApi
 
 All URIs are relative to *https://api.svrf.com/v1*
 
@@ -19,9 +19,9 @@ Authenticate an application's SVRF API Key to retrieve an access token to the SV
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using Svrf.Client.Api;
+using Svrf.Client.Client;
+using Svrf.Client.Model;
 
 namespace Example
 {
