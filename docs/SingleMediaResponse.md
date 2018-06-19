@@ -1,4 +1,4 @@
-# Svrf.Client.Model.SingleMediaResponse
+# SVRF.Client.Model.SingleMediaResponse
 ## Properties
 
 Name | Type | Description | Notes

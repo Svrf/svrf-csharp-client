@@ -1,4 +1,4 @@
-# Svrf.Client.Api.MediaApi
+# SVRF.Client.Api.MediaApi
 
 All URIs are relative to *https://api.svrf.com/v1*
 
@@ -21,9 +21,9 @@ Fetch media by its ID.
 ```csharp
 using System;
 using System.Diagnostics;
-using Svrf.Client.Api;
-using Svrf.Client.Client;
-using Svrf.Client.Model;
+using SVRF.Client.Api;
+using SVRF.Client.Client;
+using SVRF.Client.Model;
 
 namespace Example
 {
@@ -87,9 +87,9 @@ The SVRF Search Endpoint brings the power of immersive search found on [SVRF.com
 ```csharp
 using System;
 using System.Diagnostics;
-using Svrf.Client.Api;
-using Svrf.Client.Client;
-using Svrf.Client.Model;
+using SVRF.Client.Api;
+using SVRF.Client.Client;
+using SVRF.Client.Model;
 
 namespace Example
 {
@@ -161,9 +161,9 @@ The SVRF Trending Endpoint provides your app or project with the hottest immersi
 ```csharp
 using System;
 using System.Diagnostics;
-using Svrf.Client.Api;
-using Svrf.Client.Client;
-using Svrf.Client.Model;
+using SVRF.Client.Api;
+using SVRF.Client.Client;
+using SVRF.Client.Model;
 
 namespace Example
 {

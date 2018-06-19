@@ -1,4 +1,4 @@
-# Svrf.Client.Model.APIKey
+# SVRF.Client.Model.APIKey
 ## Properties
 
 Name | Type | Description | Notes

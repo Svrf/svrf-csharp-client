@@ -1,4 +1,4 @@
-# Svrf.Client.Model.RateLimitResponse
+# SVRF.Client.Model.RateLimitResponse
 ## Properties
 
 Name | Type | Description | Notes

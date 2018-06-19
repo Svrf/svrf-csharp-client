@@ -1,4 +1,4 @@
-# Svrf.Client.Model.AuthResponse
+# SVRF.Client.Model.AuthResponse
 ## Properties
 
 Name | Type | Description | Notes

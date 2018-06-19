@@ -1,4 +1,4 @@
-# Svrf.Client.Model.SuccessResponse
+# SVRF.Client.Model.SuccessResponse
 ## Properties
 
 Name | Type | Description | Notes

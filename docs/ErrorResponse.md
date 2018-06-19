@@ -1,4 +1,4 @@
-# Svrf.Client.Model.ErrorResponse
+# SVRF.Client.Model.ErrorResponse
 ## Properties
 
 Name | Type | Description | Notes

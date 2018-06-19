@@ -4,6 +4,6 @@
 language: csharp
 mono:
   - latest
-solution: Svrf.Client.sln
+solution: SVRF.Client.sln
 script:
   - /bin/sh ./mono_nunit_test.sh

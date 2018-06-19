@@ -1,4 +1,4 @@
-# Svrf.Client.Model.MediaVideos
+# SVRF.Client.Model.MediaVideos
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# Svrf.Client.Model.MediaImages
+# SVRF.Client.Model.MediaImages
 ## Properties
 
 Name | Type | Description | Notes

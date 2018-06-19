@@ -1,4 +1,4 @@
-# Svrf.Client.Model.MediaStereo
+# SVRF.Client.Model.MediaStereo
 ## Properties
 
 Name | Type | Description | Notes

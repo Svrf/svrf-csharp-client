@@ -1,4 +1,4 @@
-# Svrf.Client.Model.Body
+# SVRF.Client.Model.Body
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# Svrf.Client.Model.TrendingResponse
+# SVRF.Client.Model.TrendingResponse
 ## Properties
 
 Name | Type | Description | Notes
