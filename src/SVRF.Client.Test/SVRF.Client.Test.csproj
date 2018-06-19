@@ -81,7 +81,7 @@ Contact: api@svrf.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\SVRF.Client\SVRF.Client.csproj">
-          <Project>{DEB489E7-F924-41C6-B1FB-6129D259EC99}</Project>
+          <Project>{DF99AFF4-F20F-45D2-9937-B966810BD0B6}</Project>
           <Name>SVRF.Client</Name>
       </ProjectReference>
   </ItemGroup>

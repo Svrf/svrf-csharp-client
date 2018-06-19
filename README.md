@@ -1,5 +1,7 @@
 # SVRF.Client - the C# client library for the SVRF API
 
+For more information, please visit [https://github.com/svrf/svrf-api](https://github.com/svrf/svrf-api)
+
 ## Getting Started
 
 SVRF's API allows you to supercharge your project or app with the first and largest search engine for immersive experiences. We make it simple for any developer to incorporate highly immersive experiences with all kinds of applications: virtual reality, augmented reality, mixed reality, mobile, and web.
