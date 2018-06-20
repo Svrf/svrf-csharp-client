@@ -65,22 +65,35 @@ namespace SVRF.Client.Test
 
         
         /// <summary>
-        /// Test VrIdGet
+        /// Test GetById
         /// </summary>
         [Test]
-        public void VrIdGetTest()
+        public void GetByIdTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //var response = instance.VrIdGet(id);
+            //var response = instance.GetById(id);
             //Assert.IsInstanceOf<SingleMediaResponse> (response, "response is SingleMediaResponse");
         }
         
         /// <summary>
-        /// Test VrSearchGet
+        /// Test GetTrending
         /// </summary>
         [Test]
-        public void VrSearchGetTest()
+        public void GetTrendingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? size = null;
+            //string nextPageCursor = null;
+            //var response = instance.GetTrending(size, nextPageCursor);
+            //Assert.IsInstanceOf<TrendingResponse> (response, "response is TrendingResponse");
+        }
+        
+        /// <summary>
+        /// Test Search
+        /// </summary>
+        [Test]
+        public void SearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
@@ -88,21 +101,8 @@ namespace SVRF.Client.Test
             //string stereoscopicType = null;
             //int? size = null;
             //int? pageNum = null;
-            //var response = instance.VrSearchGet(q, type, stereoscopicType, size, pageNum);
+            //var response = instance.Search(q, type, stereoscopicType, size, pageNum);
             //Assert.IsInstanceOf<SearchMediaResponse> (response, "response is SearchMediaResponse");
-        }
-        
-        /// <summary>
-        /// Test VrTrendingGet
-        /// </summary>
-        [Test]
-        public void VrTrendingGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? size = null;
-            //string nextPageCursor = null;
-            //var response = instance.VrTrendingGet(size, nextPageCursor);
-            //Assert.IsInstanceOf<TrendingResponse> (response, "response is TrendingResponse");
         }
         
     }

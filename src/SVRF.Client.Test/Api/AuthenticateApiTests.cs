@@ -65,14 +65,14 @@ namespace SVRF.Client.Test
 
         
         /// <summary>
-        /// Test AppAuthenticatePost
+        /// Test Authenticate
         /// </summary>
         [Test]
-        public void AppAuthenticatePostTest()
+        public void AuthenticateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Body body = null;
-            //var response = instance.AppAuthenticatePost(body);
+            //var response = instance.Authenticate(body);
             //Assert.IsInstanceOf<AuthResponse> (response, "response is AuthResponse");
         }
         

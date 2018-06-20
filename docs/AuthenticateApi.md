@@ -4,12 +4,12 @@ All URIs are relative to *https://api.svrf.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AppAuthenticatePost**](AuthenticateApi.md#appauthenticatepost) | **POST** /app/authenticate | Authenticate application
+[**Authenticate**](AuthenticateApi.md#authenticate) | **POST** /app/authenticate | Authenticate application
 
 
-<a name="appauthenticatepost"></a>
-# **AppAuthenticatePost**
-> AuthResponse AppAuthenticatePost (Body body)
+<a name="authenticate"></a>
+# **Authenticate**
+> AuthResponse Authenticate (Body body)
 
 Authenticate application
 
@@ -25,7 +25,7 @@ using SVRF.Client.Model;
 
 namespace Example
 {
-    public class AppAuthenticatePostExample
+    public class AuthenticateExample
     {
         public void main()
         {
@@ -35,12 +35,12 @@ namespace Example
             try
             {
                 // Authenticate application
-                AuthResponse result = apiInstance.AppAuthenticatePost(body);
+                AuthResponse result = apiInstance.Authenticate(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuthenticateApi.AppAuthenticatePost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticateApi.Authenticate: " + e.Message );
             }
         }
     }

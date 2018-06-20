@@ -4,14 +4,14 @@ All URIs are relative to *https://api.svrf.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VrIdGet**](MediaApi.md#vridget) | **GET** /vr/{id} | Media by ID Endpoint
-[**VrSearchGet**](MediaApi.md#vrsearchget) | **GET** /vr/search | Search Endpoint
-[**VrTrendingGet**](MediaApi.md#vrtrendingget) | **GET** /vr/trending | Trending Endpoint
+[**GetById**](MediaApi.md#getbyid) | **GET** /vr/{id} | Media by ID Endpoint
+[**GetTrending**](MediaApi.md#gettrending) | **GET** /vr/trending | Trending Endpoint
+[**Search**](MediaApi.md#search) | **GET** /vr/search | Search Endpoint
 
 
-<a name="vridget"></a>
-# **VrIdGet**
-> SingleMediaResponse VrIdGet (string id)
+<a name="getbyid"></a>
+# **GetById**
+> SingleMediaResponse GetById (string id)
 
 Media by ID Endpoint
 
@@ -27,7 +27,7 @@ using SVRF.Client.Model;
 
 namespace Example
 {
-    public class VrIdGetExample
+    public class GetByIdExample
     {
         public void main()
         {
@@ -42,12 +42,12 @@ namespace Example
             try
             {
                 // Media by ID Endpoint
-                SingleMediaResponse result = apiInstance.VrIdGet(id);
+                SingleMediaResponse result = apiInstance.GetById(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MediaApi.VrIdGet: " + e.Message );
+                Debug.Print("Exception when calling MediaApi.GetById: " + e.Message );
             }
         }
     }
@@ -75,9 +75,77 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="vrsearchget"></a>
-# **VrSearchGet**
-> SearchMediaResponse VrSearchGet (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+<a name="gettrending"></a>
+# **GetTrending**
+> TrendingResponse GetTrending (int? size = null, string nextPageCursor = null)
+
+Trending Endpoint
+
+The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using SVRF.Client.Api;
+using SVRF.Client.Client;
+using SVRF.Client.Model;
+
+namespace Example
+{
+    public class GetTrendingExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: XAppToken
+            Configuration.Default.AddApiKey("x-app-token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-app-token", "Bearer");
+
+            var apiInstance = new MediaApi();
+            var size = 56;  // int? | The number of results per page. (optional) 
+            var nextPageCursor = nextPageCursor_example;  // string | Pass this cursor ID to get the next page of results. (optional) 
+
+            try
+            {
+                // Trending Endpoint
+                TrendingResponse result = apiInstance.GetTrending(size, nextPageCursor);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MediaApi.GetTrending: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int?**| The number of results per page. | [optional] 
+ **nextPageCursor** | **string**| Pass this cursor ID to get the next page of results. | [optional] 
+
+### Return type
+
+[**TrendingResponse**](TrendingResponse.md)
+
+### Authorization
+
+[XAppToken](../README.md#XAppToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="search"></a>
+# **Search**
+> SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
 
 Search Endpoint
 
@@ -93,7 +161,7 @@ using SVRF.Client.Model;
 
 namespace Example
 {
-    public class VrSearchGetExample
+    public class SearchExample
     {
         public void main()
         {
@@ -112,12 +180,12 @@ namespace Example
             try
             {
                 // Search Endpoint
-                SearchMediaResponse result = apiInstance.VrSearchGet(q, type, stereoscopicType, size, pageNum);
+                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, size, pageNum);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MediaApi.VrSearchGet: " + e.Message );
+                Debug.Print("Exception when calling MediaApi.Search: " + e.Message );
             }
         }
     }
@@ -137,74 +205,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SearchMediaResponse**](SearchMediaResponse.md)
-
-### Authorization
-
-[XAppToken](../README.md#XAppToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="vrtrendingget"></a>
-# **VrTrendingGet**
-> TrendingResponse VrTrendingGet (int? size = null, string nextPageCursor = null)
-
-Trending Endpoint
-
-The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using SVRF.Client.Api;
-using SVRF.Client.Client;
-using SVRF.Client.Model;
-
-namespace Example
-{
-    public class VrTrendingGetExample
-    {
-        public void main()
-        {
-            // Configure API key authorization: XAppToken
-            Configuration.Default.AddApiKey("x-app-token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-app-token", "Bearer");
-
-            var apiInstance = new MediaApi();
-            var size = 56;  // int? | The number of results per page. (optional) 
-            var nextPageCursor = nextPageCursor_example;  // string | Pass this cursor ID to get the next page of results. (optional) 
-
-            try
-            {
-                // Trending Endpoint
-                TrendingResponse result = apiInstance.VrTrendingGet(size, nextPageCursor);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MediaApi.VrTrendingGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **size** | **int?**| The number of results per page. | [optional] 
- **nextPageCursor** | **string**| Pass this cursor ID to get the next page of results. | [optional] 
-
-### Return type
-
-[**TrendingResponse**](TrendingResponse.md)
 
 ### Authorization
 

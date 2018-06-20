@@ -33,7 +33,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>SingleMediaResponse</returns>
-        SingleMediaResponse VrIdGet (string id);
+        SingleMediaResponse GetById (string id);
 
         /// <summary>
         /// Media by ID Endpoint
@@ -44,7 +44,30 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>ApiResponse of SingleMediaResponse</returns>
-        ApiResponse<SingleMediaResponse> VrIdGetWithHttpInfo (string id);
+        ApiResponse<SingleMediaResponse> GetByIdWithHttpInfo (string id);
+        /// <summary>
+        /// Trending Endpoint
+        /// </summary>
+        /// <remarks>
+        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </remarks>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>TrendingResponse</returns>
+        TrendingResponse GetTrending (int? size = null, string nextPageCursor = null);
+
+        /// <summary>
+        /// Trending Endpoint
+        /// </summary>
+        /// <remarks>
+        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </remarks>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>ApiResponse of TrendingResponse</returns>
+        ApiResponse<TrendingResponse> GetTrendingWithHttpInfo (int? size = null, string nextPageCursor = null);
         /// <summary>
         /// Search Endpoint
         /// </summary>
@@ -58,7 +81,7 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>SearchMediaResponse</returns>
-        SearchMediaResponse VrSearchGet (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
+        SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
 
         /// <summary>
         /// Search Endpoint
@@ -73,30 +96,7 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>ApiResponse of SearchMediaResponse</returns>
-        ApiResponse<SearchMediaResponse> VrSearchGetWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
-        /// <summary>
-        /// Trending Endpoint
-        /// </summary>
-        /// <remarks>
-        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </remarks>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>TrendingResponse</returns>
-        TrendingResponse VrTrendingGet (int? size = null, string nextPageCursor = null);
-
-        /// <summary>
-        /// Trending Endpoint
-        /// </summary>
-        /// <remarks>
-        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </remarks>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>ApiResponse of TrendingResponse</returns>
-        ApiResponse<TrendingResponse> VrTrendingGetWithHttpInfo (int? size = null, string nextPageCursor = null);
+        ApiResponse<SearchMediaResponse> SearchWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -108,7 +108,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>Task of SingleMediaResponse</returns>
-        System.Threading.Tasks.Task<SingleMediaResponse> VrIdGetAsync (string id);
+        System.Threading.Tasks.Task<SingleMediaResponse> GetByIdAsync (string id);
 
         /// <summary>
         /// Media by ID Endpoint
@@ -119,7 +119,30 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>Task of ApiResponse (SingleMediaResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SingleMediaResponse>> VrIdGetAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<SingleMediaResponse>> GetByIdAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Trending Endpoint
+        /// </summary>
+        /// <remarks>
+        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </remarks>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>Task of TrendingResponse</returns>
+        System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (int? size = null, string nextPageCursor = null);
+
+        /// <summary>
+        /// Trending Endpoint
+        /// </summary>
+        /// <remarks>
+        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </remarks>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>Task of ApiResponse (TrendingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (int? size = null, string nextPageCursor = null);
         /// <summary>
         /// Search Endpoint
         /// </summary>
@@ -133,7 +156,7 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>Task of SearchMediaResponse</returns>
-        System.Threading.Tasks.Task<SearchMediaResponse> VrSearchGetAsync (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
+        System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
 
         /// <summary>
         /// Search Endpoint
@@ -148,30 +171,7 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>Task of ApiResponse (SearchMediaResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> VrSearchGetAsyncWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
-        /// <summary>
-        /// Trending Endpoint
-        /// </summary>
-        /// <remarks>
-        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </remarks>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>Task of TrendingResponse</returns>
-        System.Threading.Tasks.Task<TrendingResponse> VrTrendingGetAsync (int? size = null, string nextPageCursor = null);
-
-        /// <summary>
-        /// Trending Endpoint
-        /// </summary>
-        /// <remarks>
-        /// The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </remarks>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>Task of ApiResponse (TrendingResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> VrTrendingGetAsyncWithHttpInfo (int? size = null, string nextPageCursor = null);
+        System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null);
         #endregion Asynchronous Operations
     }
 
@@ -278,9 +278,9 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>SingleMediaResponse</returns>
-        public SingleMediaResponse VrIdGet (string id)
+        public SingleMediaResponse GetById (string id)
         {
-             ApiResponse<SingleMediaResponse> localVarResponse = VrIdGetWithHttpInfo(id);
+             ApiResponse<SingleMediaResponse> localVarResponse = GetByIdWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -290,11 +290,11 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>ApiResponse of SingleMediaResponse</returns>
-        public ApiResponse< SingleMediaResponse > VrIdGetWithHttpInfo (string id)
+        public ApiResponse< SingleMediaResponse > GetByIdWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->VrIdGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->GetById");
 
             var localVarPath = "/vr/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -334,7 +334,7 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VrIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -349,9 +349,9 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>Task of SingleMediaResponse</returns>
-        public async System.Threading.Tasks.Task<SingleMediaResponse> VrIdGetAsync (string id)
+        public async System.Threading.Tasks.Task<SingleMediaResponse> GetByIdAsync (string id)
         {
-             ApiResponse<SingleMediaResponse> localVarResponse = await VrIdGetAsyncWithHttpInfo(id);
+             ApiResponse<SingleMediaResponse> localVarResponse = await GetByIdAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -362,11 +362,11 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID of Media</param>
         /// <returns>Task of ApiResponse (SingleMediaResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SingleMediaResponse>> VrIdGetAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<SingleMediaResponse>> GetByIdAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->VrIdGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->GetById");
 
             var localVarPath = "/vr/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -406,13 +406,156 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VrIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<SingleMediaResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (SingleMediaResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleMediaResponse)));
+        }
+
+        /// <summary>
+        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </summary>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>TrendingResponse</returns>
+        public TrendingResponse GetTrending (int? size = null, string nextPageCursor = null)
+        {
+             ApiResponse<TrendingResponse> localVarResponse = GetTrendingWithHttpInfo(size, nextPageCursor);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </summary>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>ApiResponse of TrendingResponse</returns>
+        public ApiResponse< TrendingResponse > GetTrendingWithHttpInfo (int? size = null, string nextPageCursor = null)
+        {
+
+            var localVarPath = "/vr/trending";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
+            if (nextPageCursor != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "nextPageCursor", nextPageCursor)); // query parameter
+
+            // authentication (XAppToken) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
+            {
+                localVarHeaderParams["x-app-token"] = Configuration.GetApiKeyWithPrefix("x-app-token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTrending", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TrendingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TrendingResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TrendingResponse)));
+        }
+
+        /// <summary>
+        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </summary>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>Task of TrendingResponse</returns>
+        public async System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (int? size = null, string nextPageCursor = null)
+        {
+             ApiResponse<TrendingResponse> localVarResponse = await GetTrendingAsyncWithHttpInfo(size, nextPageCursor);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
+        /// </summary>
+        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="size">The number of results per page. (optional)</param>
+        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
+        /// <returns>Task of ApiResponse (TrendingResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (int? size = null, string nextPageCursor = null)
+        {
+
+            var localVarPath = "/vr/trending";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
+            if (nextPageCursor != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "nextPageCursor", nextPageCursor)); // query parameter
+
+            // authentication (XAppToken) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
+            {
+                localVarHeaderParams["x-app-token"] = Configuration.GetApiKeyWithPrefix("x-app-token");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTrending", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TrendingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TrendingResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TrendingResponse)));
         }
 
         /// <summary>
@@ -425,9 +568,9 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>SearchMediaResponse</returns>
-        public SearchMediaResponse VrSearchGet (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+        public SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
         {
-             ApiResponse<SearchMediaResponse> localVarResponse = VrSearchGetWithHttpInfo(q, type, stereoscopicType, size, pageNum);
+             ApiResponse<SearchMediaResponse> localVarResponse = SearchWithHttpInfo(q, type, stereoscopicType, size, pageNum);
              return localVarResponse.Data;
         }
 
@@ -441,11 +584,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>ApiResponse of SearchMediaResponse</returns>
-        public ApiResponse< SearchMediaResponse > VrSearchGetWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+        public ApiResponse< SearchMediaResponse > SearchWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
-                throw new ApiException(400, "Missing required parameter 'q' when calling MediaApi->VrSearchGet");
+                throw new ApiException(400, "Missing required parameter 'q' when calling MediaApi->Search");
 
             var localVarPath = "/vr/search";
             var localVarPathParams = new Dictionary<String, String>();
@@ -489,7 +632,7 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VrSearchGet", localVarResponse);
+                Exception exception = ExceptionFactory("Search", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -508,9 +651,9 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>Task of SearchMediaResponse</returns>
-        public async System.Threading.Tasks.Task<SearchMediaResponse> VrSearchGetAsync (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
         {
-             ApiResponse<SearchMediaResponse> localVarResponse = await VrSearchGetAsyncWithHttpInfo(q, type, stereoscopicType, size, pageNum);
+             ApiResponse<SearchMediaResponse> localVarResponse = await SearchAsyncWithHttpInfo(q, type, stereoscopicType, size, pageNum);
              return localVarResponse.Data;
 
         }
@@ -525,11 +668,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100 default: 10 (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable (optional)</param>
         /// <returns>Task of ApiResponse (SearchMediaResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> VrSearchGetAsyncWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
-                throw new ApiException(400, "Missing required parameter 'q' when calling MediaApi->VrSearchGet");
+                throw new ApiException(400, "Missing required parameter 'q' when calling MediaApi->Search");
 
             var localVarPath = "/vr/search";
             var localVarPathParams = new Dictionary<String, String>();
@@ -573,156 +716,13 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("VrSearchGet", localVarResponse);
+                Exception exception = ExceptionFactory("Search", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<SearchMediaResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (SearchMediaResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SearchMediaResponse)));
-        }
-
-        /// <summary>
-        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </summary>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>TrendingResponse</returns>
-        public TrendingResponse VrTrendingGet (int? size = null, string nextPageCursor = null)
-        {
-             ApiResponse<TrendingResponse> localVarResponse = VrTrendingGetWithHttpInfo(size, nextPageCursor);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </summary>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>ApiResponse of TrendingResponse</returns>
-        public ApiResponse< TrendingResponse > VrTrendingGetWithHttpInfo (int? size = null, string nextPageCursor = null)
-        {
-
-            var localVarPath = "/vr/trending";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
-            if (nextPageCursor != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "nextPageCursor", nextPageCursor)); // query parameter
-
-            // authentication (XAppToken) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
-            {
-                localVarHeaderParams["x-app-token"] = Configuration.GetApiKeyWithPrefix("x-app-token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("VrTrendingGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TrendingResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TrendingResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TrendingResponse)));
-        }
-
-        /// <summary>
-        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </summary>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>Task of TrendingResponse</returns>
-        public async System.Threading.Tasks.Task<TrendingResponse> VrTrendingGetAsync (int? size = null, string nextPageCursor = null)
-        {
-             ApiResponse<TrendingResponse> localVarResponse = await VrTrendingGetAsyncWithHttpInfo(size, nextPageCursor);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Trending Endpoint The SVRF Trending Endpoint provides your app or project with the hottest immersive content curated by real humans. The experiences returned mirror the [SVRF homepage](https://www.svrf.com), from timely cultural content to trending pop-culture references. The trending experiences are updated regularly to ensure users always get fresh updates of immersive content.
-        /// </summary>
-        /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="size">The number of results per page. (optional)</param>
-        /// <param name="nextPageCursor">Pass this cursor ID to get the next page of results. (optional)</param>
-        /// <returns>Task of ApiResponse (TrendingResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> VrTrendingGetAsyncWithHttpInfo (int? size = null, string nextPageCursor = null)
-        {
-
-            var localVarPath = "/vr/trending";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
-            if (nextPageCursor != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "nextPageCursor", nextPageCursor)); // query parameter
-
-            // authentication (XAppToken) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
-            {
-                localVarHeaderParams["x-app-token"] = Configuration.GetApiKeyWithPrefix("x-app-token");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("VrTrendingGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TrendingResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TrendingResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TrendingResponse)));
         }
 
     }

@@ -33,7 +33,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>AuthResponse</returns>
-        AuthResponse AppAuthenticatePost (Body body);
+        AuthResponse Authenticate (Body body);
 
         /// <summary>
         /// Authenticate application
@@ -44,7 +44,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of AuthResponse</returns>
-        ApiResponse<AuthResponse> AppAuthenticatePostWithHttpInfo (Body body);
+        ApiResponse<AuthResponse> AuthenticateWithHttpInfo (Body body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -56,7 +56,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of AuthResponse</returns>
-        System.Threading.Tasks.Task<AuthResponse> AppAuthenticatePostAsync (Body body);
+        System.Threading.Tasks.Task<AuthResponse> AuthenticateAsync (Body body);
 
         /// <summary>
         /// Authenticate application
@@ -67,7 +67,7 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (AuthResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthResponse>> AppAuthenticatePostAsyncWithHttpInfo (Body body);
+        System.Threading.Tasks.Task<ApiResponse<AuthResponse>> AuthenticateAsyncWithHttpInfo (Body body);
         #endregion Asynchronous Operations
     }
 
@@ -174,9 +174,9 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>AuthResponse</returns>
-        public AuthResponse AppAuthenticatePost (Body body)
+        public AuthResponse Authenticate (Body body)
         {
-             ApiResponse<AuthResponse> localVarResponse = AppAuthenticatePostWithHttpInfo(body);
+             ApiResponse<AuthResponse> localVarResponse = AuthenticateWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -186,11 +186,11 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of AuthResponse</returns>
-        public ApiResponse< AuthResponse > AppAuthenticatePostWithHttpInfo (Body body)
+        public ApiResponse< AuthResponse > AuthenticateWithHttpInfo (Body body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AuthenticateApi->AppAuthenticatePost");
+                throw new ApiException(400, "Missing required parameter 'body' when calling AuthenticateApi->Authenticate");
 
             var localVarPath = "/app/authenticate";
             var localVarPathParams = new Dictionary<String, String>();
@@ -233,7 +233,7 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AppAuthenticatePost", localVarResponse);
+                Exception exception = ExceptionFactory("Authenticate", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -248,9 +248,9 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of AuthResponse</returns>
-        public async System.Threading.Tasks.Task<AuthResponse> AppAuthenticatePostAsync (Body body)
+        public async System.Threading.Tasks.Task<AuthResponse> AuthenticateAsync (Body body)
         {
-             ApiResponse<AuthResponse> localVarResponse = await AppAuthenticatePostAsyncWithHttpInfo(body);
+             ApiResponse<AuthResponse> localVarResponse = await AuthenticateAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
@@ -261,11 +261,11 @@ namespace SVRF.Client.Api
         /// <exception cref="SVRF.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (AuthResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AuthResponse>> AppAuthenticatePostAsyncWithHttpInfo (Body body)
+        public async System.Threading.Tasks.Task<ApiResponse<AuthResponse>> AuthenticateAsyncWithHttpInfo (Body body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling AuthenticateApi->AppAuthenticatePost");
+                throw new ApiException(400, "Missing required parameter 'body' when calling AuthenticateApi->Authenticate");
 
             var localVarPath = "/app/authenticate";
             var localVarPathParams = new Dictionary<String, String>();
@@ -308,7 +308,7 @@ namespace SVRF.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AppAuthenticatePost", localVarResponse);
+                Exception exception = ExceptionFactory("Authenticate", localVarResponse);
                 if (exception != null) throw exception;
             }
 

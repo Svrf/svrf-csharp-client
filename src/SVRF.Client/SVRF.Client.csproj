@@ -12,7 +12,7 @@ Contact: api@svrf.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF99AFF4-F20F-45D2-9937-B966810BD0B6}</ProjectGuid>
+    <ProjectGuid>{0247273A-D31D-4047-8DE6-33F2BDD6B233}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SVRF.Client</RootNamespace>
