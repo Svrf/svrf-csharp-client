@@ -3,7 +3,7 @@
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>$id$</id>
-        <title>Swagger Library</title>
+        <title>SVRF API client</title>
 
         <!-- The package version number that is used when resolving dependencies -->
         <version>$version$</version>
@@ -19,7 +19,7 @@
 
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
-        <description>A library generated from a Swagger doc</description>
+        <description>SVRF&#39;s API allows you to supercharge your project or app with the first and largest search engine for immersive experiences.</description>
 
         <!-- Dependencies are automatically installed when the package is installed -->
         <dependencies>
