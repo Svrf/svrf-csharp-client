@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SVRF API client")]
-[assembly: AssemblyDescription("SVRF&#39;s API allows you to supercharge your project or app with the first and largest search engine for immersive experiences.")]
+[assembly: AssemblyDescription("SVRF API allows you to supercharge your project or app with the first and largest search engine for immersive experiences.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swagger")]
-[assembly: AssemblyProduct("SwaggerLibrary")]
-[assembly: AssemblyCopyright("No Copyright")]
+[assembly: AssemblyCompany("SVRF")]
+[assembly: AssemblyProduct("SVRF API client")]
+[assembly: AssemblyCopyright("2018 SVRF Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

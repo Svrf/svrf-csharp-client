@@ -19,7 +19,7 @@
 
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
-        <description>SVRF&#39;s API allows you to supercharge your project or app with the first and largest search engine for immersive experiences.</description>
+        <description>SVRF API allows you to supercharge your project or app with the first and largest search engine for immersive experiences.</description>
 
         <!-- Dependencies are automatically installed when the package is installed -->
         <dependencies>
