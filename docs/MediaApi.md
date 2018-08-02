@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="gettrending"></a>
 # **GetTrending**
-> TrendingResponse GetTrending (int? size = null, string nextPageCursor = null)
+> TrendingResponse GetTrending (string type = null, string stereoscopicType = null, string category = null, int? size = null, string nextPageCursor = null)
 
 Trending Endpoint
 
@@ -103,13 +103,16 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-app-token", "Bearer");
 
             var apiInstance = new MediaApi();
+            var type = type_example;  // string | The type of Media to be returned. (optional) 
+            var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
+            var category = category_example;  // string | Search only for Media with a particular category. (optional) 
             var size = 56;  // int? | The number of results per page. (optional) 
             var nextPageCursor = nextPageCursor_example;  // string | Pass this cursor ID to get the next page of results. (optional) 
 
             try
             {
                 // Trending Endpoint
-                TrendingResponse result = apiInstance.GetTrending(size, nextPageCursor);
+                TrendingResponse result = apiInstance.GetTrending(type, stereoscopicType, category, size, nextPageCursor);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -125,6 +128,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **type** | **string**| The type of Media to be returned. | [optional] 
+ **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
+ **category** | **string**| Search only for Media with a particular category. | [optional] 
  **size** | **int?**| The number of results per page. | [optional] 
  **nextPageCursor** | **string**| Pass this cursor ID to get the next page of results. | [optional] 
 
@@ -145,7 +151,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **Search**
-> SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, int? size = null, int? pageNum = null)
+> SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, string category = null, int? size = null, int? pageNum = null)
 
 Search Endpoint
 
@@ -171,16 +177,17 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-app-token", "Bearer");
 
             var apiInstance = new MediaApi();
-            var q = q_example;  // string | Url-encoded search query
-            var type = type_example;  // string | The type of Media to be returned (optional) 
-            var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type (optional) 
-            var size = 56;  // int? | The number of results to return per-page, from 1 to 100 default: 10 (optional) 
-            var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable (optional) 
+            var q = q_example;  // string | Url-encoded search query.
+            var type = type_example;  // string | The type of Media to be returned. (optional) 
+            var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
+            var category = category_example;  // string | Search only for Media with a particular category. (optional) 
+            var size = 56;  // int? | The number of results to return per-page, from 1 to 100 default: 10. (optional) 
+            var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
 
             try
             {
                 // Search Endpoint
-                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, size, pageNum);
+                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, category, size, pageNum);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -196,11 +203,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **string**| Url-encoded search query | 
- **type** | **string**| The type of Media to be returned | [optional] 
- **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type | [optional] 
- **size** | **int?**| The number of results to return per-page, from 1 to 100 default: 10 | [optional] 
- **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable | [optional] 
+ **q** | **string**| Url-encoded search query. | 
+ **type** | **string**| The type of Media to be returned. | [optional] 
+ **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
+ **category** | **string**| Search only for Media with a particular category. | [optional] 
+ **size** | **int?**| The number of results to return per-page, from 1 to 100 default: 10. | [optional] 
+ **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
 
 ### Return type
 

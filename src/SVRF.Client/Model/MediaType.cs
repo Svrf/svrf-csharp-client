@@ -25,114 +25,32 @@ using SwaggerDateConverter = SVRF.Client.Client.SwaggerDateConverter;
 namespace SVRF.Client.Model
 {
     /// <summary>
-    /// Body
+    /// The type of the Media. This should influence the media controls displayed to the user.
     /// </summary>
-    [DataContract]
-    public partial class Body :  IEquatable<Body>, IValidatableObject
+    /// <value>The type of the Media. This should influence the media controls displayed to the user.</value>
+    
+    [JsonConverter(typeof(StringEnumConverter))]
+    
+    public enum MediaType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Body" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected Body() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Body" /> class.
-        /// </summary>
-        /// <param name="ApiKey">Your application&#39;s API Key (required).</param>
-        public Body(string ApiKey = default(string))
-        {
-            // to ensure "ApiKey" is required (not null)
-            if (ApiKey == null)
-            {
-                throw new InvalidDataException("ApiKey is a required property for Body and cannot be null");
-            }
-            else
-            {
-                this.ApiKey = ApiKey;
-            }
-        }
         
         /// <summary>
-        /// Your application&#39;s API Key
+        /// Enum Photo for value: photo
         /// </summary>
-        /// <value>Your application&#39;s API Key</value>
-        [DataMember(Name="apiKey", EmitDefaultValue=false)]
-        public string ApiKey { get; set; }
-
+        [EnumMember(Value = "photo")]
+        Photo = 1,
+        
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Enum Video for value: video
         /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class Body {\n");
-            sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-  
+        [EnumMember(Value = "video")]
+        Video = 2,
+        
         /// <summary>
-        /// Returns the JSON string presentation of the object
+        /// Enum _3d for value: 3d
         /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Body);
-        }
-
-        /// <summary>
-        /// Returns true if Body instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Body to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Body input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.ApiKey == input.ApiKey ||
-                    (this.ApiKey != null &&
-                    this.ApiKey.Equals(input.ApiKey))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ApiKey != null)
-                    hashCode = hashCode * 59 + this.ApiKey.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
-        }
+        [EnumMember(Value = "3d")]
+        _3d = 3
     }
 
 }
