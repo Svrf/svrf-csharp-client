@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Glb** | **string** | This is the binary glTF format that should be used by clients if the Media is a 3D object. | [optional] 
 **Images** | [**MediaImages**](MediaImages.md) |  | [optional] 
 **Stereo** | [**MediaStereo**](MediaStereo.md) |  | [optional] 
 **Videos** | [**MediaVideos**](MediaVideos.md) |  | [optional] 

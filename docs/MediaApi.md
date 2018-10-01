@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="gettrending"></a>
 # **GetTrending**
-> TrendingResponse GetTrending (string type = null, string stereoscopicType = null, string category = null, int? size = null, string nextPageCursor = null)
+> TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, string nextPageCursor = null)
 
 Trending Endpoint
 
@@ -103,10 +103,10 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("x-app-token", "Bearer");
 
             var apiInstance = new MediaApi();
-            var type = type_example;  // string | The type of Media to be returned. (optional) 
+            var type = new List<MediaType>(); // List<MediaType> | The type(s) of Media to be returned (comma separated). (optional) 
             var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
             var category = category_example;  // string | Search only for Media with a particular category. (optional) 
-            var size = 56;  // int? | The number of results per page. (optional) 
+            var size = 56;  // int? | The number of results per page. (optional)  (default to 10)
             var nextPageCursor = nextPageCursor_example;  // string | Pass this cursor ID to get the next page of results. (optional) 
 
             try
@@ -128,10 +128,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| The type of Media to be returned. | [optional] 
+ **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional] 
  **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
  **category** | **string**| Search only for Media with a particular category. | [optional] 
- **size** | **int?**| The number of results per page. | [optional] 
+ **size** | **int?**| The number of results per page. | [optional] [default to 10]
  **nextPageCursor** | **string**| Pass this cursor ID to get the next page of results. | [optional] 
 
 ### Return type
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **Search**
-> SearchMediaResponse Search (string q, string type = null, string stereoscopicType = null, string category = null, int? size = null, int? pageNum = null)
+> SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? pageNum = null)
 
 Search Endpoint
 
@@ -178,10 +178,10 @@ namespace Example
 
             var apiInstance = new MediaApi();
             var q = q_example;  // string | Url-encoded search query.
-            var type = type_example;  // string | The type of Media to be returned. (optional) 
+            var type = new List<MediaType>(); // List<MediaType> | The type(s) of Media to be returned (comma separated). (optional) 
             var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
             var category = category_example;  // string | Search only for Media with a particular category. (optional) 
-            var size = 56;  // int? | The number of results to return per-page, from 1 to 100 default: 10. (optional) 
+            var size = 56;  // int? | The number of results to return per-page, from 1 to 100. (optional)  (default to 10)
             var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
 
             try
@@ -204,10 +204,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **string**| Url-encoded search query. | 
- **type** | **string**| The type of Media to be returned. | [optional] 
+ **type** | [**List&lt;MediaType&gt;**](MediaType.md)| The type(s) of Media to be returned (comma separated). | [optional] 
  **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
  **category** | **string**| Search only for Media with a particular category. | [optional] 
- **size** | **int?**| The number of results to return per-page, from 1 to 100 default: 10. | [optional] 
+ **size** | **int?**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
  **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
 
 ### Return type
