@@ -38,18 +38,20 @@ namespace SVRF.Client.Model
         /// <param name="_720">720px wide image. This image may be used for thumbnailing..</param>
         /// <param name="_1080">1080px wide image. This image should be used for previews or other uses requiring clear resolution at low bandwidth..</param>
         /// <param name="_4096">4096px wide image. This image should be used on mobile devices, as larger images may cause some devices to crash..</param>
+        /// <param name="_8192">The image at a reasonably large resolution that can be used for a better desktop experience..</param>
         /// <param name="_1080Watermarked">1080px wide watermarked image. This image should be used for sharing on social media..</param>
         /// <param name="_720x405">A 16:9 image. This image may be used for thumbnailing..</param>
         /// <param name="_720x540">A 4:3 image. This image may be used for thumbnailing..</param>
         /// <param name="_720x720">A 1:1 image. This image may be used for thumbnailing..</param>
         /// <param name="Max">The image in its largest available size (the original size). This image should be used in third-party applications for the best experience, except on mobile devices (see &#x60;4096&#x60;)..</param>
-        public MediaImages(string _136 = default(string), string _540 = default(string), string _720 = default(string), string _1080 = default(string), string _4096 = default(string), string _1080Watermarked = default(string), string _720x405 = default(string), string _720x540 = default(string), string _720x720 = default(string), string Max = default(string))
+        public MediaImages(string _136 = default(string), string _540 = default(string), string _720 = default(string), string _1080 = default(string), string _4096 = default(string), string _8192 = default(string), string _1080Watermarked = default(string), string _720x405 = default(string), string _720x540 = default(string), string _720x720 = default(string), string Max = default(string))
         {
             this._136 = _136;
             this._540 = _540;
             this._720 = _720;
             this._1080 = _1080;
             this._4096 = _4096;
+            this._8192 = _8192;
             this._1080Watermarked = _1080Watermarked;
             this._720x405 = _720x405;
             this._720x540 = _720x540;
@@ -91,6 +93,13 @@ namespace SVRF.Client.Model
         /// <value>4096px wide image. This image should be used on mobile devices, as larger images may cause some devices to crash.</value>
         [DataMember(Name="4096", EmitDefaultValue=false)]
         public string _4096 { get; set; }
+
+        /// <summary>
+        /// The image at a reasonably large resolution that can be used for a better desktop experience.
+        /// </summary>
+        /// <value>The image at a reasonably large resolution that can be used for a better desktop experience.</value>
+        [DataMember(Name="8192", EmitDefaultValue=false)]
+        public string _8192 { get; set; }
 
         /// <summary>
         /// 1080px wide watermarked image. This image should be used for sharing on social media.
@@ -140,6 +149,7 @@ namespace SVRF.Client.Model
             sb.Append("  _720: ").Append(_720).Append("\n");
             sb.Append("  _1080: ").Append(_1080).Append("\n");
             sb.Append("  _4096: ").Append(_4096).Append("\n");
+            sb.Append("  _8192: ").Append(_8192).Append("\n");
             sb.Append("  _1080Watermarked: ").Append(_1080Watermarked).Append("\n");
             sb.Append("  _720x405: ").Append(_720x405).Append("\n");
             sb.Append("  _720x540: ").Append(_720x540).Append("\n");
@@ -205,6 +215,11 @@ namespace SVRF.Client.Model
                     this._4096.Equals(input._4096))
                 ) && 
                 (
+                    this._8192 == input._8192 ||
+                    (this._8192 != null &&
+                    this._8192.Equals(input._8192))
+                ) && 
+                (
                     this._1080Watermarked == input._1080Watermarked ||
                     (this._1080Watermarked != null &&
                     this._1080Watermarked.Equals(input._1080Watermarked))
@@ -250,6 +265,8 @@ namespace SVRF.Client.Model
                     hashCode = hashCode * 59 + this._1080.GetHashCode();
                 if (this._4096 != null)
                     hashCode = hashCode * 59 + this._4096.GetHashCode();
+                if (this._8192 != null)
+                    hashCode = hashCode * 59 + this._8192.GetHashCode();
                 if (this._1080Watermarked != null)
                     hashCode = hashCode * 59 + this._1080Watermarked.GetHashCode();
                 if (this._720x405 != null)

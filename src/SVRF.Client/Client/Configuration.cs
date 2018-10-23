@@ -29,7 +29,7 @@ namespace SVRF.Client.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.2.0";
+        public const string Version = "1.3.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace SVRF.Client.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/1.2.0/csharp";
+            UserAgent = "Swagger-Codegen/1.3.0/csharp";
             BasePath = "https://api.svrf.com/v1";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace SVRF.Client.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/1.2.0/csharp"
+            string userAgent = "Swagger-Codegen/1.3.0/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -422,7 +422,7 @@ namespace SVRF.Client.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 1.2.0\n";
+            report += "    SDK Package Version: 1.3.0\n";
 
             return report;
         }

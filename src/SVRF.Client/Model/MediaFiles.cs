@@ -33,24 +33,42 @@ namespace SVRF.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaFiles" /> class.
         /// </summary>
-        /// <param name="Glb">This is the binary glTF format that should be used by clients if the Media is a 3D object..</param>
+        /// <param name="Glb">This is the binary glTF format that should be used by clients if the Media is a 3D object. This is the preferred format to use on end-user devices..</param>
+        /// <param name="GlbDraco">This is the binary glTF format, with additional DRACO compression, that should be used by clients if the Media is a 3D object. Your renderer must support the KHR_draco_mesh_compression extension to use this model..</param>
+        /// <param name="Gltf">A map of file names to urls where those files are hosted. The file names are relative and their name heirarchy should be respected when saving them locally..</param>
         /// <param name="Images">Images.</param>
         /// <param name="Stereo">Stereo.</param>
         /// <param name="Videos">Videos.</param>
-        public MediaFiles(string Glb = default(string), MediaImages Images = default(MediaImages), MediaStereo Stereo = default(MediaStereo), MediaVideos Videos = default(MediaVideos))
+        public MediaFiles(string Glb = default(string), string GlbDraco = default(string), Dictionary<string, string> Gltf = default(Dictionary<string, string>), MediaImages Images = default(MediaImages), MediaStereo Stereo = default(MediaStereo), MediaVideos Videos = default(MediaVideos))
         {
             this.Glb = Glb;
+            this.GlbDraco = GlbDraco;
+            this.Gltf = Gltf;
             this.Images = Images;
             this.Stereo = Stereo;
             this.Videos = Videos;
         }
         
         /// <summary>
-        /// This is the binary glTF format that should be used by clients if the Media is a 3D object.
+        /// This is the binary glTF format that should be used by clients if the Media is a 3D object. This is the preferred format to use on end-user devices.
         /// </summary>
-        /// <value>This is the binary glTF format that should be used by clients if the Media is a 3D object.</value>
+        /// <value>This is the binary glTF format that should be used by clients if the Media is a 3D object. This is the preferred format to use on end-user devices.</value>
         [DataMember(Name="glb", EmitDefaultValue=false)]
         public string Glb { get; set; }
+
+        /// <summary>
+        /// This is the binary glTF format, with additional DRACO compression, that should be used by clients if the Media is a 3D object. Your renderer must support the KHR_draco_mesh_compression extension to use this model.
+        /// </summary>
+        /// <value>This is the binary glTF format, with additional DRACO compression, that should be used by clients if the Media is a 3D object. Your renderer must support the KHR_draco_mesh_compression extension to use this model.</value>
+        [DataMember(Name="glb-draco", EmitDefaultValue=false)]
+        public string GlbDraco { get; set; }
+
+        /// <summary>
+        /// A map of file names to urls where those files are hosted. The file names are relative and their name heirarchy should be respected when saving them locally.
+        /// </summary>
+        /// <value>A map of file names to urls where those files are hosted. The file names are relative and their name heirarchy should be respected when saving them locally.</value>
+        [DataMember(Name="gltf", EmitDefaultValue=false)]
+        public Dictionary<string, string> Gltf { get; set; }
 
         /// <summary>
         /// Gets or Sets Images
@@ -79,6 +97,8 @@ namespace SVRF.Client.Model
             var sb = new StringBuilder();
             sb.Append("class MediaFiles {\n");
             sb.Append("  Glb: ").Append(Glb).Append("\n");
+            sb.Append("  GlbDraco: ").Append(GlbDraco).Append("\n");
+            sb.Append("  Gltf: ").Append(Gltf).Append("\n");
             sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("  Stereo: ").Append(Stereo).Append("\n");
             sb.Append("  Videos: ").Append(Videos).Append("\n");
@@ -122,6 +142,16 @@ namespace SVRF.Client.Model
                     this.Glb.Equals(input.Glb))
                 ) && 
                 (
+                    this.GlbDraco == input.GlbDraco ||
+                    (this.GlbDraco != null &&
+                    this.GlbDraco.Equals(input.GlbDraco))
+                ) && 
+                (
+                    this.Gltf == input.Gltf ||
+                    this.Gltf != null &&
+                    this.Gltf.SequenceEqual(input.Gltf)
+                ) && 
+                (
                     this.Images == input.Images ||
                     (this.Images != null &&
                     this.Images.Equals(input.Images))
@@ -149,6 +179,10 @@ namespace SVRF.Client.Model
                 int hashCode = 41;
                 if (this.Glb != null)
                     hashCode = hashCode * 59 + this.Glb.GetHashCode();
+                if (this.GlbDraco != null)
+                    hashCode = hashCode * 59 + this.GlbDraco.GetHashCode();
+                if (this.Gltf != null)
+                    hashCode = hashCode * 59 + this.Gltf.GetHashCode();
                 if (this.Images != null)
                     hashCode = hashCode * 59 + this.Images.GetHashCode();
                 if (this.Stereo != null)

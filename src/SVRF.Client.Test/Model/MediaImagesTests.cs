@@ -107,6 +107,14 @@ namespace SVRF.Client.Test
             // TODO unit test for the property '_4096'
         }
         /// <summary>
+        /// Test the property '_8192'
+        /// </summary>
+        [Test]
+        public void _8192Test()
+        {
+            // TODO unit test for the property '_8192'
+        }
+        /// <summary>
         /// Test the property '_1080Watermarked'
         /// </summary>
         [Test]

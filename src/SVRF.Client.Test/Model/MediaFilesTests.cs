@@ -75,6 +75,22 @@ namespace SVRF.Client.Test
             // TODO unit test for the property 'Glb'
         }
         /// <summary>
+        /// Test the property 'GlbDraco'
+        /// </summary>
+        [Test]
+        public void GlbDracoTest()
+        {
+            // TODO unit test for the property 'GlbDraco'
+        }
+        /// <summary>
+        /// Test the property 'Gltf'
+        /// </summary>
+        [Test]
+        public void GltfTest()
+        {
+            // TODO unit test for the property 'Gltf'
+        }
+        /// <summary>
         /// Test the property 'Images'
         /// </summary>
         [Test]
