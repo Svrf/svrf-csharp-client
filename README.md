@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
  - [Model.MediaStereo](docs/MediaStereo.md)
  - [Model.MediaType](docs/MediaType.md)
  - [Model.MediaVideos](docs/MediaVideos.md)
+ - [Model.PaginationResponse](docs/PaginationResponse.md)
  - [Model.StereoscopicType](docs/StereoscopicType.md)
  - [Model.SuccessResponse](docs/SuccessResponse.md)
  - [Model.AuthResponse](docs/AuthResponse.md)

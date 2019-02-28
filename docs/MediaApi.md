@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="gettrending"></a>
 # **GetTrending**
-> TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, string nextPageCursor = null)
+> TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
 
 Trending Endpoint
 
@@ -107,12 +107,13 @@ namespace Example
             var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
             var category = category_example;  // string | Search only for Media with a particular category. (optional) 
             var size = 56;  // int? | The number of results per page. (optional)  (default to 10)
-            var nextPageCursor = nextPageCursor_example;  // string | Pass this cursor ID to get the next page of results. (optional) 
+            var minimumWidth = 56;  // int? | The minimum width for video and photo Media, in pixels. (optional) 
+            var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
 
             try
             {
                 // Trending Endpoint
-                TrendingResponse result = apiInstance.GetTrending(type, stereoscopicType, category, size, nextPageCursor);
+                TrendingResponse result = apiInstance.GetTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -132,7 +133,8 @@ Name | Type | Description  | Notes
  **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
  **category** | **string**| Search only for Media with a particular category. | [optional] 
  **size** | **int?**| The number of results per page. | [optional] [default to 10]
- **nextPageCursor** | **string**| Pass this cursor ID to get the next page of results. | [optional] 
+ **minimumWidth** | **int?**| The minimum width for video and photo Media, in pixels. | [optional] 
+ **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
 
 ### Return type
 
@@ -151,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **Search**
-> SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? pageNum = null)
+> SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
 
 Search Endpoint
 
@@ -182,12 +184,13 @@ namespace Example
             var stereoscopicType = stereoscopicType_example;  // string | Search only for Media with a particular stereoscopic type. (optional) 
             var category = category_example;  // string | Search only for Media with a particular category. (optional) 
             var size = 56;  // int? | The number of results to return per-page, from 1 to 100. (optional)  (default to 10)
+            var minimumWidth = 56;  // int? | The minimum width for video and photo Media, in pixels. (optional) 
             var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
 
             try
             {
                 // Search Endpoint
-                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, category, size, pageNum);
+                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -208,6 +211,7 @@ Name | Type | Description  | Notes
  **stereoscopicType** | **string**| Search only for Media with a particular stereoscopic type. | [optional] 
  **category** | **string**| Search only for Media with a particular category. | [optional] 
  **size** | **int?**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
+ **minimumWidth** | **int?**| The minimum width for video and photo Media, in pixels. | [optional] 
  **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
 
 ### Return type

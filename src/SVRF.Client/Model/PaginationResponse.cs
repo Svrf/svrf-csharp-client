@@ -26,26 +26,35 @@ using SwaggerDateConverter = SVRF.Client.Client.SwaggerDateConverter;
 namespace SVRF.Client.Model
 {
     /// <summary>
-    /// SuccessResponse
+    /// PaginationResponse
     /// </summary>
     [DataContract]
-    public partial class SuccessResponse :  IEquatable<SuccessResponse>, IValidatableObject
+    public partial class PaginationResponse :  IEquatable<PaginationResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SuccessResponse" /> class.
+        /// Initializes a new instance of the <see cref="PaginationResponse" /> class.
         /// </summary>
-        /// <param name="Success">If the request was successful.</param>
-        public SuccessResponse(bool? Success = default(bool?))
+        /// <param name="NextPageNum">The next page to query to see more results, whether or not the next page actually exists..</param>
+        /// <param name="PageNum">The current page number.</param>
+        public PaginationResponse(int? NextPageNum = default(int?), int? PageNum = default(int?))
         {
-            this.Success = Success;
+            this.NextPageNum = NextPageNum;
+            this.PageNum = PageNum;
         }
         
         /// <summary>
-        /// If the request was successful
+        /// The next page to query to see more results, whether or not the next page actually exists.
         /// </summary>
-        /// <value>If the request was successful</value>
-        [DataMember(Name="success", EmitDefaultValue=false)]
-        public bool? Success { get; set; }
+        /// <value>The next page to query to see more results, whether or not the next page actually exists.</value>
+        [DataMember(Name="nextPageNum", EmitDefaultValue=false)]
+        public int? NextPageNum { get; set; }
+
+        /// <summary>
+        /// The current page number
+        /// </summary>
+        /// <value>The current page number</value>
+        [DataMember(Name="pageNum", EmitDefaultValue=false)]
+        public int? PageNum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +63,9 @@ namespace SVRF.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SuccessResponse {\n");
-            sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("class PaginationResponse {\n");
+            sb.Append("  NextPageNum: ").Append(NextPageNum).Append("\n");
+            sb.Append("  PageNum: ").Append(PageNum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,24 +86,29 @@ namespace SVRF.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SuccessResponse);
+            return this.Equals(input as PaginationResponse);
         }
 
         /// <summary>
-        /// Returns true if SuccessResponse instances are equal
+        /// Returns true if PaginationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SuccessResponse to be compared</param>
+        /// <param name="input">Instance of PaginationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SuccessResponse input)
+        public bool Equals(PaginationResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.NextPageNum == input.NextPageNum ||
+                    (this.NextPageNum != null &&
+                    this.NextPageNum.Equals(input.NextPageNum))
+                ) && 
+                (
+                    this.PageNum == input.PageNum ||
+                    (this.PageNum != null &&
+                    this.PageNum.Equals(input.PageNum))
                 );
         }
 
@@ -106,8 +121,10 @@ namespace SVRF.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Success != null)
-                    hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.NextPageNum != null)
+                    hashCode = hashCode * 59 + this.NextPageNum.GetHashCode();
+                if (this.PageNum != null)
+                    hashCode = hashCode * 59 + this.PageNum.GetHashCode();
                 return hashCode;
             }
         }
