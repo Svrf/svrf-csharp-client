@@ -256,12 +256,17 @@ namespace SVRF.Client.Client
                 return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
             else if (obj is IList)
             {
+                var list = (IList)obj;
+                var memberType = list[0].GetType();
                 var flattenedString = new StringBuilder();
-                foreach (var param in (IList)obj)
+                foreach (var param in list)
                 {
+                    var memInfo = memberType.GetMember(param.ToString());
+                    var enumAttr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
                     if (flattenedString.Length > 0)
                         flattenedString.Append(",");
-                    flattenedString.Append(param);
+
+                    flattenedString.Append(enumAttr == null ? param : enumAttr.Value);
                 }
                 return flattenedString.ToString();
             }
