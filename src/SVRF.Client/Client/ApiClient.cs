@@ -257,11 +257,10 @@ namespace SVRF.Client.Client
             else if (obj is IList)
             {
                 var list = (IList)obj;
-                var memberType = list[0].GetType();
                 var flattenedString = new StringBuilder();
                 foreach (var param in list)
                 {
-                    var memInfo = memberType.GetMember(param.ToString());
+                    var memInfo = param.GetType().GetMember(param.ToString());
                     var enumAttr = memInfo.FirstOrDefault()?.GetCustomAttributes(false).OfType<EnumMemberAttribute>().FirstOrDefault();
                     if (flattenedString.Length > 0)
                         flattenedString.Append(",");
