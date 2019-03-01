@@ -21,6 +21,7 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Runtime.Serialization;
 
 namespace SVRF.Client.Client
 {
