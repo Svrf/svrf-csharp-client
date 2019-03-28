@@ -148,6 +148,14 @@ namespace SVRF.Client.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
+        /// Test the property 'Metadata'
+        /// </summary>
+        [Test]
+        public void MetadataTest()
+        {
+            // TODO unit test for the property 'Metadata'
+        }
+        /// <summary>
         /// Test the property 'Site'
         /// </summary>
         [Test]

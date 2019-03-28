@@ -49,12 +49,13 @@ namespace SVRF.Client.Model
         /// <param name="Files">Files.</param>
         /// <param name="Height">The height, in pixels, of the Media&#39;s source.</param>
         /// <param name="Id">The unique ID of this Media.</param>
+        /// <param name="Metadata">Metadata.</param>
         /// <param name="Site">The site that this Media came from. This should be displayed when possible..</param>
         /// <param name="Title">The title of the Media, suitable for displaying.</param>
         /// <param name="Type">Type.</param>
         /// <param name="Url">The original page this Media is located at..</param>
         /// <param name="Width">The width, in pixels, of the Media&#39;s source.</param>
-        public Media(bool? Adult = false, List<string> Authors = default(List<string>), string Canonical = default(string), string Description = default(string), decimal? Duration = default(decimal?), string EmbedHtml = default(string), string EmbedUrl = default(string), MediaFiles Files = default(MediaFiles), decimal? Height = default(decimal?), string Id = default(string), string Site = default(string), string Title = default(string), MediaType? Type = default(MediaType?), string Url = default(string), decimal? Width = default(decimal?))
+        public Media(bool? Adult = false, List<string> Authors = default(List<string>), string Canonical = default(string), string Description = default(string), decimal? Duration = default(decimal?), string EmbedHtml = default(string), string EmbedUrl = default(string), MediaFiles Files = default(MediaFiles), decimal? Height = default(decimal?), string Id = default(string), MediaMetadata Metadata = default(MediaMetadata), string Site = default(string), string Title = default(string), MediaType? Type = default(MediaType?), string Url = default(string), decimal? Width = default(decimal?))
         {
             // use default value if no "Adult" provided
             if (Adult == null)
@@ -74,6 +75,7 @@ namespace SVRF.Client.Model
             this.Files = Files;
             this.Height = Height;
             this.Id = Id;
+            this.Metadata = Metadata;
             this.Site = Site;
             this.Title = Title;
             this.Type = Type;
@@ -151,6 +153,12 @@ namespace SVRF.Client.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name="metadata", EmitDefaultValue=false)]
+        public MediaMetadata Metadata { get; set; }
+
+        /// <summary>
         /// The site that this Media came from. This should be displayed when possible.
         /// </summary>
         /// <value>The site that this Media came from. This should be displayed when possible.</value>
@@ -197,6 +205,7 @@ namespace SVRF.Client.Model
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Site: ").Append(Site).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -287,6 +296,11 @@ namespace SVRF.Client.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
                     this.Site == input.Site ||
                     (this.Site != null &&
                     this.Site.Equals(input.Site))
@@ -342,6 +356,8 @@ namespace SVRF.Client.Model
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Site != null)
                     hashCode = hashCode * 59 + this.Site.GetHashCode();
                 if (this.Title != null)

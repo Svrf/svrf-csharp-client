@@ -68,6 +68,14 @@ namespace SVRF.Client.Test
 
 
         /// <summary>
+        /// Test the property 'Success'
+        /// </summary>
+        [Test]
+        public void SuccessTest()
+        {
+            // TODO unit test for the property 'Success'
+        }
+        /// <summary>
         /// Test the property 'NextPageNum'
         /// </summary>
         [Test]

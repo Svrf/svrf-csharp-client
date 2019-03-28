@@ -59,8 +59,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>TrendingResponse</returns>
-        TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
 
         /// <summary>
         /// Trending Endpoint
@@ -75,8 +78,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>ApiResponse of TrendingResponse</returns>
-        ApiResponse<TrendingResponse> GetTrendingWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        ApiResponse<TrendingResponse> GetTrendingWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
         /// <summary>
         /// Search Endpoint
         /// </summary>
@@ -91,8 +97,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>SearchMediaResponse</returns>
-        SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
 
         /// <summary>
         /// Search Endpoint
@@ -108,8 +117,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>ApiResponse of SearchMediaResponse</returns>
-        ApiResponse<SearchMediaResponse> SearchWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        ApiResponse<SearchMediaResponse> SearchWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -146,8 +158,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of TrendingResponse</returns>
-        System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
 
         /// <summary>
         /// Trending Endpoint
@@ -162,8 +177,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of ApiResponse (TrendingResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
         /// <summary>
         /// Search Endpoint
         /// </summary>
@@ -178,8 +196,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of SearchMediaResponse</returns>
-        System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
 
         /// <summary>
         /// Search Endpoint
@@ -195,8 +216,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of ApiResponse (SearchMediaResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null);
+        System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null);
         #endregion Asynchronous Operations
     }
 
@@ -450,10 +474,13 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>TrendingResponse</returns>
-        public TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
-             ApiResponse<TrendingResponse> localVarResponse = GetTrendingWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum);
+             ApiResponse<TrendingResponse> localVarResponse = GetTrendingWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
              return localVarResponse.Data;
         }
 
@@ -467,8 +494,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>ApiResponse of TrendingResponse</returns>
-        public ApiResponse< TrendingResponse > GetTrendingWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public ApiResponse< TrendingResponse > GetTrendingWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
 
             var localVarPath = "/vr/trending";
@@ -498,6 +528,9 @@ namespace SVRF.Client.Api
             if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
             if (minimumWidth != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "minimumWidth", minimumWidth)); // query parameter
             if (pageNum != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNum", pageNum)); // query parameter
+            if (isFaceFilter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "isFaceFilter", isFaceFilter)); // query parameter
+            if (hasBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hasBlendShapes", hasBlendShapes)); // query parameter
+            if (requiresBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "requiresBlendShapes", requiresBlendShapes)); // query parameter
 
             // authentication (XAppToken) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
@@ -533,10 +566,13 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of TrendingResponse</returns>
-        public async System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<TrendingResponse> GetTrendingAsync (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
-             ApiResponse<TrendingResponse> localVarResponse = await GetTrendingAsyncWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum);
+             ApiResponse<TrendingResponse> localVarResponse = await GetTrendingAsyncWithHttpInfo(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
              return localVarResponse.Data;
 
         }
@@ -551,8 +587,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results per page. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of ApiResponse (TrendingResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TrendingResponse>> GetTrendingAsyncWithHttpInfo (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
 
             var localVarPath = "/vr/trending";
@@ -582,6 +621,9 @@ namespace SVRF.Client.Api
             if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
             if (minimumWidth != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "minimumWidth", minimumWidth)); // query parameter
             if (pageNum != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNum", pageNum)); // query parameter
+            if (isFaceFilter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "isFaceFilter", isFaceFilter)); // query parameter
+            if (hasBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hasBlendShapes", hasBlendShapes)); // query parameter
+            if (requiresBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "requiresBlendShapes", requiresBlendShapes)); // query parameter
 
             // authentication (XAppToken) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
@@ -618,10 +660,13 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>SearchMediaResponse</returns>
-        public SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
-             ApiResponse<SearchMediaResponse> localVarResponse = SearchWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+             ApiResponse<SearchMediaResponse> localVarResponse = SearchWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
              return localVarResponse.Data;
         }
 
@@ -636,8 +681,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>ApiResponse of SearchMediaResponse</returns>
-        public ApiResponse< SearchMediaResponse > SearchWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public ApiResponse< SearchMediaResponse > SearchWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -671,6 +719,9 @@ namespace SVRF.Client.Api
             if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
             if (minimumWidth != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "minimumWidth", minimumWidth)); // query parameter
             if (pageNum != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNum", pageNum)); // query parameter
+            if (isFaceFilter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "isFaceFilter", isFaceFilter)); // query parameter
+            if (hasBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hasBlendShapes", hasBlendShapes)); // query parameter
+            if (requiresBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "requiresBlendShapes", requiresBlendShapes)); // query parameter
 
             // authentication (XAppToken) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))
@@ -707,10 +758,13 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of SearchMediaResponse</returns>
-        public async System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<SearchMediaResponse> SearchAsync (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
-             ApiResponse<SearchMediaResponse> localVarResponse = await SearchAsyncWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+             ApiResponse<SearchMediaResponse> localVarResponse = await SearchAsyncWithHttpInfo(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
              return localVarResponse.Data;
 
         }
@@ -726,8 +780,11 @@ namespace SVRF.Client.Api
         /// <param name="size">The number of results to return per-page, from 1 to 100. (optional, default to 10)</param>
         /// <param name="minimumWidth">The minimum width for video and photo Media, in pixels. (optional)</param>
         /// <param name="pageNum">Pagination control to fetch the next page of results, if applicable. (optional)</param>
+        /// <param name="isFaceFilter">Search only for Face Filters. (optional)</param>
+        /// <param name="hasBlendShapes">Search only for Media that has blend shapes. (optional)</param>
+        /// <param name="requiresBlendShapes">Search only for Media that requires blend shapes. (optional)</param>
         /// <returns>Task of ApiResponse (SearchMediaResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SearchMediaResponse>> SearchAsyncWithHttpInfo (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -761,6 +818,9 @@ namespace SVRF.Client.Api
             if (size != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "size", size)); // query parameter
             if (minimumWidth != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "minimumWidth", minimumWidth)); // query parameter
             if (pageNum != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "pageNum", pageNum)); // query parameter
+            if (isFaceFilter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "isFaceFilter", isFaceFilter)); // query parameter
+            if (hasBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "hasBlendShapes", hasBlendShapes)); // query parameter
+            if (requiresBlendShapes != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "requiresBlendShapes", requiresBlendShapes)); // query parameter
 
             // authentication (XAppToken) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-app-token")))

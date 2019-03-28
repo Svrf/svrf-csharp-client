@@ -34,14 +34,23 @@ namespace SVRF.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginationResponse" /> class.
         /// </summary>
+        /// <param name="Success">If the request was successful.</param>
         /// <param name="NextPageNum">The next page to query to see more results, whether or not the next page actually exists..</param>
         /// <param name="PageNum">The current page number.</param>
-        public PaginationResponse(int? NextPageNum = default(int?), int? PageNum = default(int?))
+        public PaginationResponse(bool? Success = default(bool?), int? NextPageNum = default(int?), int? PageNum = default(int?))
         {
+            this.Success = Success;
             this.NextPageNum = NextPageNum;
             this.PageNum = PageNum;
         }
         
+        /// <summary>
+        /// If the request was successful
+        /// </summary>
+        /// <value>If the request was successful</value>
+        [DataMember(Name="success", EmitDefaultValue=false)]
+        public bool? Success { get; set; }
+
         /// <summary>
         /// The next page to query to see more results, whether or not the next page actually exists.
         /// </summary>
@@ -64,6 +73,7 @@ namespace SVRF.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaginationResponse {\n");
+            sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  NextPageNum: ").Append(NextPageNum).Append("\n");
             sb.Append("  PageNum: ").Append(PageNum).Append("\n");
             sb.Append("}\n");
@@ -101,6 +111,11 @@ namespace SVRF.Client.Model
 
             return 
                 (
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
+                ) && 
+                (
                     this.NextPageNum == input.NextPageNum ||
                     (this.NextPageNum != null &&
                     this.NextPageNum.Equals(input.NextPageNum))
@@ -121,6 +136,8 @@ namespace SVRF.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Success != null)
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.NextPageNum != null)
                     hashCode = hashCode * 59 + this.NextPageNum.GetHashCode();
                 if (this.PageNum != null)

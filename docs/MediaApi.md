@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="gettrending"></a>
 # **GetTrending**
-> TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+> TrendingResponse GetTrending (List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
 
 Trending Endpoint
 
@@ -109,11 +109,14 @@ namespace Example
             var size = 56;  // int? | The number of results per page. (optional)  (default to 10)
             var minimumWidth = 56;  // int? | The minimum width for video and photo Media, in pixels. (optional) 
             var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
+            var isFaceFilter = true;  // bool? | Search only for Face Filters. (optional) 
+            var hasBlendShapes = true;  // bool? | Search only for Media that has blend shapes. (optional) 
+            var requiresBlendShapes = true;  // bool? | Search only for Media that requires blend shapes. (optional) 
 
             try
             {
                 // Trending Endpoint
-                TrendingResponse result = apiInstance.GetTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
+                TrendingResponse result = apiInstance.GetTrending(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -135,6 +138,9 @@ Name | Type | Description  | Notes
  **size** | **int?**| The number of results per page. | [optional] [default to 10]
  **minimumWidth** | **int?**| The minimum width for video and photo Media, in pixels. | [optional] 
  **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
+ **isFaceFilter** | **bool?**| Search only for Face Filters. | [optional] 
+ **hasBlendShapes** | **bool?**| Search only for Media that has blend shapes. | [optional] 
+ **requiresBlendShapes** | **bool?**| Search only for Media that requires blend shapes. | [optional] 
 
 ### Return type
 
@@ -153,7 +159,7 @@ Name | Type | Description  | Notes
 
 <a name="search"></a>
 # **Search**
-> SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null)
+> SearchMediaResponse Search (string q, List<MediaType> type = null, string stereoscopicType = null, string category = null, int? size = null, int? minimumWidth = null, int? pageNum = null, bool? isFaceFilter = null, bool? hasBlendShapes = null, bool? requiresBlendShapes = null)
 
 Search Endpoint
 
@@ -186,11 +192,14 @@ namespace Example
             var size = 56;  // int? | The number of results to return per-page, from 1 to 100. (optional)  (default to 10)
             var minimumWidth = 56;  // int? | The minimum width for video and photo Media, in pixels. (optional) 
             var pageNum = 56;  // int? | Pagination control to fetch the next page of results, if applicable. (optional) 
+            var isFaceFilter = true;  // bool? | Search only for Face Filters. (optional) 
+            var hasBlendShapes = true;  // bool? | Search only for Media that has blend shapes. (optional) 
+            var requiresBlendShapes = true;  // bool? | Search only for Media that requires blend shapes. (optional) 
 
             try
             {
                 // Search Endpoint
-                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+                SearchMediaResponse result = apiInstance.Search(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -213,6 +222,9 @@ Name | Type | Description  | Notes
  **size** | **int?**| The number of results to return per-page, from 1 to 100. | [optional] [default to 10]
  **minimumWidth** | **int?**| The minimum width for video and photo Media, in pixels. | [optional] 
  **pageNum** | **int?**| Pagination control to fetch the next page of results, if applicable. | [optional] 
+ **isFaceFilter** | **bool?**| Search only for Face Filters. | [optional] 
+ **hasBlendShapes** | **bool?**| Search only for Media that has blend shapes. | [optional] 
+ **requiresBlendShapes** | **bool?**| Search only for Media that requires blend shapes. | [optional] 
 
 ### Return type
 

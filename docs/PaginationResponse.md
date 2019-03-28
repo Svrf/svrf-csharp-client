@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Success** | **bool?** | If the request was successful | [optional] 
 **NextPageNum** | **int?** | The next page to query to see more results, whether or not the next page actually exists. | [optional] 
 **PageNum** | **int?** | The current page number | [optional] 
 

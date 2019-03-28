@@ -90,7 +90,10 @@ namespace SVRF.Client.Test
             //int? size = null;
             //int? minimumWidth = null;
             //int? pageNum = null;
-            //var response = instance.GetTrending(type, stereoscopicType, category, size, minimumWidth, pageNum);
+            //bool? isFaceFilter = null;
+            //bool? hasBlendShapes = null;
+            //bool? requiresBlendShapes = null;
+            //var response = instance.GetTrending(type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
             //Assert.IsInstanceOf<TrendingResponse> (response, "response is TrendingResponse");
         }
         
@@ -108,7 +111,10 @@ namespace SVRF.Client.Test
             //int? size = null;
             //int? minimumWidth = null;
             //int? pageNum = null;
-            //var response = instance.Search(q, type, stereoscopicType, category, size, minimumWidth, pageNum);
+            //bool? isFaceFilter = null;
+            //bool? hasBlendShapes = null;
+            //bool? requiresBlendShapes = null;
+            //var response = instance.Search(q, type, stereoscopicType, category, size, minimumWidth, pageNum, isFaceFilter, hasBlendShapes, requiresBlendShapes);
             //Assert.IsInstanceOf<SearchMediaResponse> (response, "response is SearchMediaResponse");
         }
         
