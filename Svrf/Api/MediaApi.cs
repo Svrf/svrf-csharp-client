@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Svrf.Exceptions;
 using Svrf.Http;
 using Svrf.Models.Http;
 
 namespace Svrf.Api
 {
-    internal class MediaApi
+    public class MediaApi
     {
-        private IHttpClient HttpClient { get; }
+        private readonly IHttpClient _httpClient;
 
         internal MediaApi(IHttpClient httpClient)
         {
-            HttpClient = httpClient;
+            _httpClient = httpClient;
         }
 
         public async Task<SingleMediaApiResponse> GetByIdAsync(int id)
@@ -48,18 +47,23 @@ namespace Svrf.Api
 
         private async Task<T> MakeRequestAsync<T>(string uri, IDictionary<string, object> requestParams = null)
         {
-            var response = await HttpClient.GetAsync(uri, requestParams);
-
-            switch (response.StatusCode)
+            try
             {
-                case HttpStatusCode.NotFound:
-                    throw new MediaNotFoundException("Requested media was not found");
-                case HttpStatusCode.Unauthorized:
-                    throw new UnauthorizedException("Unauthorized request");
+                var response = await _httpClient.GetAsync<T>(uri, requestParams);
+                return response;
             }
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(responseString);
+            catch(HttpException ex)
+            {
+                switch (ex.Code)
+                {
+                    case HttpStatusCode.NotFound:
+                        throw new MediaNotFoundException(ex.Message);
+                    case HttpStatusCode.Unauthorized:
+                        throw new UnauthorizedException(ex.Message);
+                    default:
+                        throw new ServerErrorException(ex.Message);
+                }
+            }
         }
     }
 }

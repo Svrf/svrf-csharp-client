@@ -8,13 +8,13 @@ namespace Svrf.Http
 {
     internal class AppTokenHttpClient : BaseHttpClient
     {
-        private AuthApi AuthApi { get; }
-        private TokenService TokenService { get; }
+        private readonly AuthApi _authApi;
+        private readonly TokenService _tokenService;
 
         internal AppTokenHttpClient(AuthApi authApi, TokenService tokenService, HttpClient httpClient) : base(httpClient)
         {
-            AuthApi = authApi;
-            TokenService = tokenService;
+            _authApi = authApi;
+            _tokenService = tokenService;
         }
 
         public override async Task<T> GetAsync<T>(string uri, IDictionary<string, object> requestParams = null)
@@ -33,16 +33,16 @@ namespace Svrf.Http
 
         private async Task SetAppTokenHeader()
         {
-            await AuthApi.AuthenticateAsync();
+            await _authApi.AuthenticateAsync();
 
-            var appToken = TokenService.GetAppToken();
+            var appToken = _tokenService.GetAppToken();
 
-            if (HttpClient.DefaultRequestHeaders.Contains("x-app-token"))
+            if (_httpClient.DefaultRequestHeaders.Contains("x-app-token"))
             {
-                HttpClient.DefaultRequestHeaders.Remove("x-app-token");
+                _httpClient.DefaultRequestHeaders.Remove("x-app-token");
             }
 
-            HttpClient.DefaultRequestHeaders.Add("x-app-token", appToken);
+            _httpClient.DefaultRequestHeaders.Add("x-app-token", appToken);
         }
     }
 }

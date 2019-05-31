@@ -7,7 +7,7 @@ namespace Svrf.Exceptions
     {
         internal HttpStatusCode Code { get; }
 
-        internal HttpException(HttpStatusCode code)
+        internal HttpException(string message, HttpStatusCode code) : base(message)
         {
             Code = code;
         }

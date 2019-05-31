@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Svrf.Exceptions;
 using Svrf.Http;
@@ -11,57 +10,55 @@ namespace Svrf.Api
 {
     internal class AuthApi
     {
-        private IHttpClient HttpClient { get; }
-        private TokenService TokenService { get; }
-        private string ApiKey { get; }
+        private readonly IHttpClient _httpClient;
+        private readonly TokenService _tokenService;
+        private readonly string _apiKey;
 
-        private Task<AuthResponse> AuthTask { get; set; }
+        private Task<AuthResponse> AuthTask;
 
         internal AuthApi(IHttpClient httpClient, TokenService tokenService, string apiKey)
         {
-            HttpClient = httpClient;
-            TokenService = tokenService;
-            ApiKey = apiKey;
+            _httpClient = httpClient;
+            _tokenService = tokenService;
+            _apiKey = apiKey;
         }
 
         public async Task AuthenticateAsync()
         {
-            if (TokenService.IsTokenValid)
+            if (_tokenService.IsTokenValid)
             {
                 return;
             }
 
-            if (string.IsNullOrEmpty(ApiKey))
+            if (string.IsNullOrEmpty(_apiKey))
             {
-                throw new ArgumentException("Api Key should be provided for authentication", nameof(ApiKey));
+                throw new ArgumentException("Api Key should be provided for authentication", nameof(_apiKey));
             }
 
-            var requestBody = new AuthRequestBody() { ApiKey = ApiKey };
+            var requestBody = new AuthRequestBody() { ApiKey = _apiKey };
 
             if (AuthTask == null)
             {
-                AuthTask = HttpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
+                AuthTask = _httpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
             }
 
             try
             {
                 var response = await AuthTask;
-                TokenService.SetAppTokenInfo(response.Token, response.ExpiresIn);
+                _tokenService.SetAppTokenInfo(response.Token, response.ExpiresIn);
             }
             catch (HttpException ex)
             {
                 switch (ex.Code)
                 {
                     case HttpStatusCode.NotFound:
-                        throw new ApiKeyIsNotFoundException();
+                        throw new ApiKeyNotFoundException(ex.Message);
                 }
             }
             finally
             {
                 AuthTask = null;
             }
-
-
         }
     }
 }

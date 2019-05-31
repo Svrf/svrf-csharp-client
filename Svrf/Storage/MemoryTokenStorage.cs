@@ -4,21 +4,21 @@ namespace Svrf.Storage
 {
     internal class MemoryTokenStorage : ITokenStorage
     {
-        private AppTokenInfo AppTokenInfo { get; set; }
+        private AppTokenInfo _appTokenInfo;
 
         public AppTokenInfo Get()
         {
-            return AppTokenInfo;
+            return _appTokenInfo;
         }
 
         public void Set(AppTokenInfo appTokenInfo)
         {
-            AppTokenInfo = appTokenInfo;
+            _appTokenInfo = appTokenInfo;
         }
 
         public void Clear()
         {
-            AppTokenInfo = null;
+            _appTokenInfo = null;
         }
     }
 }

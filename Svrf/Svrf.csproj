@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AuthApi.cs" />
-    <Compile Include="Exceptions\ApiKeyIsNotFoundException.cs" />
+    <Compile Include="Exceptions\ApiKeyNotFoundException.cs" />
     <Compile Include="Exceptions\HttpException.cs" />
+    <Compile Include="Exceptions\ServerErrorException.cs" />
+    <Compile Include="Exceptions\TooManyRequestsException.cs" />
     <Compile Include="Models\Http\AuthRequestBody.cs" />
     <Compile Include="Api\MediaApi.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Models\Http\AuthResponse.cs" />
     <Compile Include="Exceptions\MediaNotFoundException.cs" />
     <Compile Include="Exceptions\UnauthorizedException.cs" />
+    <Compile Include="Models\Http\ErrorResponse.cs" />
     <Compile Include="Models\Media\Category.cs" />
     <Compile Include="Models\Http\HttpRequestParams.cs" />
     <Compile Include="Models\Media\MediaType.cs" />

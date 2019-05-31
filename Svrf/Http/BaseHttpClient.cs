@@ -6,24 +6,26 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Svrf.Exceptions;
 using Svrf.Services;
+using System.Net;
+using Svrf.Models.Http;
 
 namespace Svrf.Http
 {
     internal class BaseHttpClient : IHttpClient
     {
-        protected HttpClient HttpClient { get; }
+        protected readonly HttpClient _httpClient;
 
         internal BaseHttpClient(HttpClient httpClient)
         {
-            HttpClient = httpClient;
-            HttpClient.BaseAddress = new Uri("https://api.svrf.com/v1/");
+            _httpClient = httpClient;
+            _httpClient.BaseAddress = new Uri("https://api.svrf.com/v1/");
         }
 
         public virtual async Task<T> GetAsync<T>(string uri, IDictionary<string, object> requestParams = null)
         {
             var formattedUri = FormatUri(uri, requestParams);
 
-            var response = await HttpClient.GetAsync(formattedUri);
+            var response = await _httpClient.GetAsync(formattedUri);
             var result = await HandleResponse<T>(response);
             return result;
         }
@@ -31,7 +33,7 @@ namespace Svrf.Http
         public virtual async Task<T> PostAsync<T>(string uri, object body)
         {
             var bodyString = JsonConvert.SerializeObject(body);
-            var response = await HttpClient.PostAsync(uri, new StringContent(bodyString, Encoding.UTF8, "application/json"));
+            var response = await _httpClient.PostAsync(uri, new StringContent(bodyString, Encoding.UTF8, "application/json"));
 
             var result = await HandleResponse<T>(response);
             return result;
@@ -48,12 +50,24 @@ namespace Svrf.Http
 
         private async Task<T> HandleResponse<T>(HttpResponseMessage response)
         {
+            var responseString = await response.Content.ReadAsStringAsync();
+
             if (!response.IsSuccessStatusCode)
             {
-                throw new HttpException(response.StatusCode);
+                var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(responseString);
+
+                // Common errors for all endpoints.
+                switch (response.StatusCode)
+                {
+                    case HttpStatusCode.Forbidden:
+                        throw new UnauthorizedException(errorResponse.Message);
+                    case (HttpStatusCode)429:
+                        throw new TooManyRequestsException(errorResponse.Message);
+                }
+
+                throw new HttpException(errorResponse.Message, response.StatusCode);
             }
 
-            var responseString = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<T>(responseString);
             return result;
         }
