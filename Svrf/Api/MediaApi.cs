@@ -58,8 +58,6 @@ namespace Svrf.Api
                 {
                     case HttpStatusCode.NotFound:
                         throw new MediaNotFoundException(ex.Message);
-                    case HttpStatusCode.Unauthorized:
-                        throw new UnauthorizedException(ex.Message);
                     default:
                         throw new ServerErrorException(ex.Message);
                 }
