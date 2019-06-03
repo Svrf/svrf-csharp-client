@@ -9,7 +9,7 @@ using Svrf.Api;
 using Svrf.Models;
 using Svrf.Services;
 
-[assembly: InternalsVisibleTo("Svrf.Tests")]
+[assembly: InternalsVisibleTo("Svrf.Tests.Unit")]
 
 namespace Svrf
 {

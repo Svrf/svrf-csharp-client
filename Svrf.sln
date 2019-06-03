@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svrf", "SVRF\Svrf.csproj", "{4E5BEDCD-A1A7-473F-92E0-62F9D723727A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svrf.Tests", "Svrf.Tests\Svrf.Tests.csproj", "{CA4207BB-EC38-4B6D-8886-90725422CD33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svrf.Tests.Unit", "Svrf.Tests.Unit\Svrf.Tests.Unit.csproj", "{CA4207BB-EC38-4B6D-8886-90725422CD33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

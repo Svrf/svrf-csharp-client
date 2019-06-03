@@ -14,7 +14,7 @@ namespace Svrf.Api
         private readonly TokenService _tokenService;
         private readonly string _apiKey;
 
-        private Task<AuthResponse> AuthTask;
+        private Task<AuthResponse> _authTask;
 
         internal AuthApi(IHttpClient httpClient, TokenService tokenService, string apiKey)
         {
@@ -37,14 +37,14 @@ namespace Svrf.Api
 
             var requestBody = new AuthRequestBody() { ApiKey = _apiKey };
 
-            if (AuthTask == null)
+            if (_authTask == null)
             {
-                AuthTask = _httpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
+                _authTask = _httpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
             }
 
             try
             {
-                var response = await AuthTask;
+                var response = await _authTask;
                 _tokenService.SetAppTokenInfo(response.Token, response.ExpiresIn);
             }
             catch (HttpException ex)
@@ -57,7 +57,7 @@ namespace Svrf.Api
             }
             finally
             {
-                AuthTask = null;
+                _authTask = null;
             }
         }
     }

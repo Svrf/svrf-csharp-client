@@ -2,6 +2,6 @@
 {
     internal class AuthRequestBody
     {
-        public string ApiKey { get; set; }
+        internal string ApiKey { get; set; }
     }
 }

@@ -16,32 +16,32 @@ namespace Svrf.Api
             _httpClient = httpClient;
         }
 
-        public async Task<SingleMediaApiResponse> GetByIdAsync(int id)
+        public async Task<SingleMediaResponse> GetByIdAsync(int id)
         {
             return await GetByIdAsync(id.ToString());
         }
 
-        public async Task<SingleMediaApiResponse> GetByIdAsync(string id)
+        public async Task<SingleMediaResponse> GetByIdAsync(string id)
         {
-            var response = await MakeRequestAsync<SingleMediaApiResponse>($"vr/{id}");
+            var response = await MakeRequestAsync<SingleMediaResponse>($"vr/{id}");
             return response;
         }
 
-        public async Task<MultipleMediaApiResponse> GetTrendingAsync(HttpRequestParams httpRequestParams = null)
+        public async Task<MultipleMediaResponse> GetTrendingAsync(HttpRequestParams httpRequestParams = null)
         {
             var requestParams = httpRequestParams?.ToDictionary();
-            var response = await MakeRequestAsync<MultipleMediaApiResponse>("vr/trending", requestParams);
+            var response = await MakeRequestAsync<MultipleMediaResponse>("vr/trending", requestParams);
             return response;
         }
 
-        public async Task<MultipleMediaApiResponse> SearchAsync(string query, HttpRequestParams httpRequestParams = null)
+        public async Task<MultipleMediaResponse> SearchAsync(string query, HttpRequestParams httpRequestParams = null)
         {
             var requestParams = httpRequestParams == null
                 ? new Dictionary<string, object>()
                 : httpRequestParams.ToDictionary();
             requestParams["q"] = query;
 
-            var response = await MakeRequestAsync<MultipleMediaApiResponse>("vr/search", requestParams);
+            var response = await MakeRequestAsync<MultipleMediaResponse>("vr/search", requestParams);
             return response;
         }
 

@@ -64,8 +64,8 @@
     <Compile Include="Models\Media\Category.cs" />
     <Compile Include="Models\Http\HttpRequestParams.cs" />
     <Compile Include="Models\Media\MediaType.cs" />
-    <Compile Include="Models\Http\MultipleMediaApiResponse.cs" />
-    <Compile Include="Models\Http\SingleMediaApiResponse.cs" />
+    <Compile Include="Models\Http\MultipleMediaResponse.cs" />
+    <Compile Include="Models\Http\SingleMediaResponse.cs" />
     <Compile Include="Models\Media\StereoscopicType.cs" />
     <Compile Include="Services\DateTimeProvider.cs" />
     <Compile Include="Services\QueryService.cs" />
