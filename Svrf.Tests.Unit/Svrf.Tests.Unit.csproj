@@ -6,11 +6,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CA4207BB-EC38-4B6D-8886-90725422CD33}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Svrf.Tests.Unit</RootNamespace>
     <AssemblyName>Svrf.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -77,8 +80,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Mocks\Json\Media.json" />
-    <None Include="Mocks\Json\MultipleMediaApiResponse.json" />
-    <None Include="Mocks\Json\SingleMediaApiResponse.json" />
+    <None Include="Mocks\Json\MultipleMediaResponse.json" />
+    <None Include="Mocks\Json\SingleMediaResponse.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
@@ -8,7 +7,6 @@ using Svrf.Api;
 using Svrf.Exceptions;
 using Svrf.Http;
 using Svrf.Models.Http;
-using Svrf.Models.Media;
 using Svrf.Tests.Unit.Mocks;
 
 namespace Svrf.Tests.Unit.Api
@@ -66,7 +64,7 @@ namespace Svrf.Tests.Unit.Api
             {
                 await _mediaApi.GetByIdAsync(Id);
 
-                _mockHttpClient.Verify(hc => hc.GetAsync<SingleMediaResponse>("vr/1", null), Times.Once);
+                _mockHttpClient.Verify(hc => hc.GetAsync<SingleMediaResponse>($"vr/{Id}", null), Times.Once);
             }
 
             [Test]
