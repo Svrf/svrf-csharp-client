@@ -1,6 +1,6 @@
 ﻿namespace Svrf.Models.Http
 {
-    public class ErrorResponse
+    internal class ErrorResponse
     {
         public string Message { get; internal set; }
     }

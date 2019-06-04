@@ -12,7 +12,7 @@ namespace Svrf.Tests.Unit.Models.Http
         {
             Assert.DoesNotThrow(() =>
             {
-                var requestParams = new HttpRequestParams {PageNum = 1};
+                var requestParams = new MediaRequestParams { PageNum = 1};
             });
         }
 
@@ -21,7 +21,7 @@ namespace Svrf.Tests.Unit.Models.Http
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                var requestParams = new HttpRequestParams {PageNum = -1};
+                var requestParams = new MediaRequestParams { PageNum = -1};
             });
         }
 
@@ -30,7 +30,7 @@ namespace Svrf.Tests.Unit.Models.Http
         {
             Assert.DoesNotThrow(() =>
             {
-                var requestParams = new HttpRequestParams { Size = 50 };
+                var requestParams = new MediaRequestParams { Size = 50 };
             });
         }
 
@@ -39,7 +39,7 @@ namespace Svrf.Tests.Unit.Models.Http
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                var requestParams = new HttpRequestParams {Size = -1};
+                var requestParams = new MediaRequestParams {Size = -1};
             });
         }
 
@@ -48,7 +48,7 @@ namespace Svrf.Tests.Unit.Models.Http
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                var requestParams = new HttpRequestParams {Size = 101};
+                var requestParams = new MediaRequestParams { Size = 101};
             });
         }
     }

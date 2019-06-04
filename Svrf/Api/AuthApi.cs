@@ -23,7 +23,7 @@ namespace Svrf.Api
             _apiKey = apiKey;
         }
 
-        public async Task AuthenticateAsync()
+        internal async Task AuthenticateAsync()
         {
             if (_tokenService.IsTokenValid)
             {

@@ -22,7 +22,6 @@ namespace Svrf.Tests.Unit.Mocks
         {
             Success = true,
             Media = new List<Media> { MediaMocks.Media },
-            NextPageCursor = "nextPageCursor",
             NextPageNum = 1,
             PageNum = 0
         };

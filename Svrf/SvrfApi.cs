@@ -13,11 +13,21 @@ using Svrf.Services;
 
 namespace Svrf
 {
+    /// <summary>
+    /// Main class that represents Svrf API.
+    /// </summary>
     public class SvrfClient
     {
-        private AuthApi AuthApi { get; }
-        public MediaApi MediaApi { get; }
+        private AuthApi Auth { get; }
 
+        /// <summary>
+        /// MediaApi instance that represents media-related endpoints.
+        /// </summary>
+        public MediaApi Media { get; }
+
+        /// <summary>Creates SvrfClient instance with provided API key and options.</summary>
+        /// <param name="apiKey">Your API key.</param>
+        /// <param name="options">Additional options.</param>
         public SvrfClient(string apiKey, ApiOptions options = null)
         {
             JsonConvert.DefaultSettings = () =>
@@ -34,21 +44,25 @@ namespace Svrf
             var tokenService = new TokenService(tokenStorage, new DateTimeProvider());
             var httpClient = new BaseHttpClient(new HttpClient());
 
-            AuthApi = new AuthApi(httpClient, tokenService, apiKey);
+            Auth = new AuthApi(httpClient, tokenService, apiKey);
 
-            var appTokenHttpClient = new AppTokenHttpClient(AuthApi, tokenService, new HttpClient());
+            var appTokenHttpClient = new AppTokenHttpClient(Auth, tokenService, new HttpClient());
 
-            MediaApi = new MediaApi(appTokenHttpClient);
+            Media = new MediaApi(appTokenHttpClient);
 
             if (!isManualAuthentication)
             {
-                Task.Run(Authenticate);
+                Task.Run(AuthenticateAsync);
             }
         }
 
-        public async Task Authenticate()
+        /// <summary>
+        /// Authenticates your app: retrieves token and saves it or takes it from the storage.
+        /// You should call it only if you passed the isManualAuthentication option.
+        /// </summary>
+        public async Task AuthenticateAsync()
         {
-            await AuthApi.AuthenticateAsync();
+            await Auth.AuthenticateAsync();
         }
     }
 }

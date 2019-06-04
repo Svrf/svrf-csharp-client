@@ -2,9 +2,19 @@
 
 namespace Svrf.Models
 {
+    /// <summary>
+    /// App token information that should be stored after authentication in the token storage.
+    /// </summary>
     public class AppTokenInfo
     {
+        /// <summary>
+        /// App token that should be stored.
+        /// </summary>
         public string AppToken { get; set; }
+
+        /// <summary>
+        /// DateTime when the token expires.
+        /// </summary>
         public DateTime ExpirationTime { get; set; }
 
         public AppTokenInfo(string appToken, DateTime expirationTime)

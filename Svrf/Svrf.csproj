@@ -61,11 +61,11 @@
     <Compile Include="Exceptions\MediaNotFoundException.cs" />
     <Compile Include="Exceptions\UnauthorizedException.cs" />
     <Compile Include="Models\Http\ErrorResponse.cs" />
+    <Compile Include="Models\Http\SingleMediaResponse.cs" />
     <Compile Include="Models\Media\Category.cs" />
-    <Compile Include="Models\Http\HttpRequestParams.cs" />
+    <Compile Include="Models\Http\MediaRequestParams.cs" />
     <Compile Include="Models\Media\MediaType.cs" />
     <Compile Include="Models\Http\MultipleMediaResponse.cs" />
-    <Compile Include="Models\Http\SingleMediaResponse.cs" />
     <Compile Include="Models\Media\StereoscopicType.cs" />
     <Compile Include="Services\DateTimeProvider.cs" />
     <Compile Include="Services\QueryService.cs" />

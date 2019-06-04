@@ -1,8 +1,15 @@
-﻿namespace Svrf.Models.Http
+﻿using System.Collections.Generic;
+
+namespace Svrf.Models.Http
 {
+    /// <summary>
+    /// Response from a single media endpoint (for example, getting media by id).
+    /// </summary>
     public class SingleMediaResponse
     {
-        public bool Success { get; internal set; }
+        /// <summary>
+        /// Result media.
+        /// </summary>
         public Media.Media Media { get; internal set; }
 
         public override bool Equals(object obj)
@@ -14,15 +21,12 @@
                 return false;
             }
 
-            return Success == other.Success && Media.Equals(other.Media);
+            return Media.Equals(other.Media);
         }
 
         public override int GetHashCode()
         {
-            unchecked
-            {
-                return (Success.GetHashCode() * 397) ^ (Media != null ? Media.GetHashCode() : 0);
-            }
+            return 284070683 + EqualityComparer<Media.Media>.Default.GetHashCode(Media);
         }
     }
 }

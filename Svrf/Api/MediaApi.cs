@@ -7,6 +7,9 @@ using Svrf.Models.Http;
 
 namespace Svrf.Api
 {
+    /// <summary>
+    /// Represents media-related endpoints.
+    /// </summary>
     public class MediaApi
     {
         private readonly IHttpClient _httpClient;
@@ -16,29 +19,50 @@ namespace Svrf.Api
             _httpClient = httpClient;
         }
 
+        /// <summary>
+        /// Gets media by provided id.
+        /// </summary>
+        /// <param name="id">Media ID.</param>
+        /// <returns>Response with single media.</returns>
         public async Task<SingleMediaResponse> GetByIdAsync(int id)
         {
             return await GetByIdAsync(id.ToString());
         }
 
+        /// <summary>
+        /// Gets media by provided id.
+        /// </summary>
+        /// <param name="id">Media ID.</param>
+        /// <returns>Response with single media.</returns>
         public async Task<SingleMediaResponse> GetByIdAsync(string id)
         {
             var response = await MakeRequestAsync<SingleMediaResponse>($"vr/{id}");
             return response;
         }
 
-        public async Task<MultipleMediaResponse> GetTrendingAsync(HttpRequestParams httpRequestParams = null)
+        /// <summary>
+        /// Gets trending media.
+        /// </summary>
+        /// <param name="mediaRequestParams">Request params.</param>
+        /// <returns>Response with trending media and pagination info.</returns>
+        public async Task<MultipleMediaResponse> GetTrendingAsync(MediaRequestParams mediaRequestParams = null)
         {
-            var requestParams = httpRequestParams?.ToDictionary();
+            var requestParams = mediaRequestParams?.ToDictionary();
             var response = await MakeRequestAsync<MultipleMediaResponse>("vr/trending", requestParams);
             return response;
         }
 
-        public async Task<MultipleMediaResponse> SearchAsync(string query, HttpRequestParams httpRequestParams = null)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="mediaRequestParams"></param>
+        /// <returns>Response with found media and pagination info.</returns>
+        public async Task<MultipleMediaResponse> SearchAsync(string query, MediaRequestParams mediaRequestParams = null)
         {
-            var requestParams = httpRequestParams == null
+            var requestParams = mediaRequestParams == null
                 ? new Dictionary<string, object>()
-                : httpRequestParams.ToDictionary();
+                : mediaRequestParams.ToDictionary();
             requestParams["q"] = query;
 
             var response = await MakeRequestAsync<MultipleMediaResponse>("vr/search", requestParams);

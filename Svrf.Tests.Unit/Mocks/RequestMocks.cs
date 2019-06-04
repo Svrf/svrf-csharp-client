@@ -6,7 +6,7 @@ namespace Svrf.Tests.Unit.Mocks
 {
     internal static class RequestMocks
     {
-        internal static HttpRequestParams RequestParams = new HttpRequestParams
+        internal static MediaRequestParams MediaRequestParams = new MediaRequestParams
         {
             PageNum = 0,
             Size = 1,

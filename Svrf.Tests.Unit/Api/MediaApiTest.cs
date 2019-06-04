@@ -110,7 +110,7 @@ namespace Svrf.Tests.Unit.Api
             [Test]
             public async Task GetTrending_WithParams_ReturnsAsyncMultipleMediaResponse()
             {
-                var result = await _mediaApi.GetTrendingAsync(RequestMocks.RequestParams);
+                var result = await _mediaApi.GetTrendingAsync(RequestMocks.MediaRequestParams);
 
                 Assert.AreEqual(ResponseMocks.MultipleMediaResponse, result);
             }
@@ -118,7 +118,7 @@ namespace Svrf.Tests.Unit.Api
             [Test]
             public async Task GetTrending_WithParams_InvokesHttpClientGet()
             {
-                await _mediaApi.GetTrendingAsync(RequestMocks.RequestParams);
+                await _mediaApi.GetTrendingAsync(RequestMocks.MediaRequestParams);
 
                 _mockHttpClient.Verify(hc => hc.GetAsync<MultipleMediaResponse>(
                     "vr/trending",
@@ -160,7 +160,7 @@ namespace Svrf.Tests.Unit.Api
             [Test]
             public async Task Search_WithQueryAndParams_InvokesHttpClientGet()
             {
-                await _mediaApi.SearchAsync(Query, RequestMocks.RequestParams);
+                await _mediaApi.SearchAsync(Query, RequestMocks.MediaRequestParams);
 
                 _mockHttpClient.Verify(hc => hc.GetAsync<MultipleMediaResponse>(
                     "vr/search",
@@ -171,7 +171,7 @@ namespace Svrf.Tests.Unit.Api
             [Test]
             public async Task Search_WithQueryAndParams_ReturnsMultipleMediaResponse()
             {
-                var result = await _mediaApi.SearchAsync(Query, RequestMocks.RequestParams);
+                var result = await _mediaApi.SearchAsync(Query, RequestMocks.MediaRequestParams);
 
                 Assert.AreEqual(ResponseMocks.MultipleMediaResponse, result);
             }
