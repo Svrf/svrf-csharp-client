@@ -41,7 +41,7 @@ namespace Svrf.Models.Http
         public StereoscopicType? StereoscopicType { get; set; }
         public List<MediaType> Type { get; set; }
 
-        public IDictionary<string, object> ToDictionary()
+        internal IDictionary<string, object> ToDictionary()
         {
             return GetType()
                 .GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
