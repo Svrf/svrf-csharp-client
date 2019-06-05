@@ -33,7 +33,8 @@ namespace Svrf.Http
         public virtual async Task<T> PostAsync<T>(string uri, object body)
         {
             var bodyString = JsonConvert.SerializeObject(body);
-            var response = await _httpClient.PostAsync(uri, new StringContent(bodyString, Encoding.UTF8, "application/json"));
+            var httpContent = new StringContent(bodyString, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync(uri, httpContent);
 
             var result = await HandleResponse<T>(response);
             return result;
