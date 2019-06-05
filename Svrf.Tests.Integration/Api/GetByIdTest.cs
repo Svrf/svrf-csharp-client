@@ -1,26 +1,31 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
 using Svrf.Exceptions;
-using Svrf.Models;
 
 namespace Svrf.Tests.Integration.Api
 {
     [TestFixture]
     public class GetByIdTest
     {
-        private int _singleRequestId = 730873;
-        private string _apiKey = Environment.GetEnvironmentVariable("SVRF_TEST_API_KEY");
-
         [Test]
-        public async Task GetById()
+        public async Task GetById_WithValidId_DoesNotThrowAnything()
         {
-            var svrfApi = new SvrfClient(_apiKey);
-            var mediaResponse = await svrfApi.Media.GetByIdAsync(_singleRequestId);
+            var id = 730873;
+            var svrf = ClientFactory.GetClient();
+            var mediaResponse = await svrf.Media.GetByIdAsync(id);
 
-            Assert.AreEqual(mediaResponse.Media.Id, _singleRequestId.ToString());
+            Assert.AreEqual(mediaResponse.Media.Id, id.ToString());
             Assert.NotNull(mediaResponse.Media.Title);
         }
 
+        [Test]
+        public void GetById_WithInvalidId_ThrowsException()
+        {
+            Assert.ThrowsAsync(typeof(MediaNotFoundException), async () =>
+            {
+                var svrf = ClientFactory.GetClient();
+                await svrf.Media.GetByIdAsync("invalid id");
+            });
+        }
     }
 }

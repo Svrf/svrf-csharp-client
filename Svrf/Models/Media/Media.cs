@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Svrf.Models.Enums;
 
 namespace Svrf.Models.Media
 {
@@ -14,7 +15,7 @@ namespace Svrf.Models.Media
         public string Canonical { get; set; }
         public string Url { get; set; }
         public string EmbedUrl { get; set; }
-        public string Type { get; set; }
+        public MediaType Type { get; set; }
         public bool Adult { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }

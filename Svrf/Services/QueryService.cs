@@ -26,6 +26,11 @@ namespace Svrf.Services
 
         private static string GetParamValue(object param)
         {
+            if (param == null)
+            {
+                return null;
+            }
+
             var paramAsEnum = param as Enum;
             if (paramAsEnum != null)
             {

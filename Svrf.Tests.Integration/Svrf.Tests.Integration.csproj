@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Api\AuthTest.cs" />
     <Compile Include="Api\GetByIdTest.cs" />
+    <Compile Include="Api\GetTrendingTest.cs" />
     <Compile Include="ClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

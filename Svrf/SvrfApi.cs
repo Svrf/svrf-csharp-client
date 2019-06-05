@@ -1,7 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Svrf.Storage;
 using Svrf.Http;
@@ -9,6 +11,7 @@ using Svrf.Api;
 using Svrf.Models;
 using Svrf.Services;
 
+[assembly: InternalsVisibleTo("Svrf.Tests.Integration")]
 [assembly: InternalsVisibleTo("Svrf.Tests.Unit")]
 
 namespace Svrf
@@ -34,7 +37,8 @@ namespace Svrf
             {
                 var settings = new JsonSerializerSettings
                 {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    Converters = new List<JsonConverter> { new StringEnumConverter() }
                 };
                 return settings;
             };

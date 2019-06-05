@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Svrf.Models.Enums;
 using Svrf.Models.Http;
-using Svrf.Models.Media;
 
 namespace Svrf.Tests.Unit.Mocks
 {
@@ -10,7 +9,7 @@ namespace Svrf.Tests.Unit.Mocks
         {
             PageNum = 0,
             Size = 1,
-            Type = new List<MediaType> { MediaType.Photo },
+            Type = new[] { MediaType.Photo },
             HasBlendShapes = false,
             RequiresBlendShapes = false,
             IsFaceFilter = false,

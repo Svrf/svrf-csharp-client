@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
-using Svrf.Models.Media;
+using Svrf.Models.Enums;
 using Svrf.Services;
 using Svrf.Tests.Unit.Mocks;
 

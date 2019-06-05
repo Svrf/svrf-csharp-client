@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Svrf.Extensions;
-using Svrf.Models.Media;
+using Svrf.Models.Enums;
 
 namespace Svrf.Models.Http
 {
@@ -73,17 +73,15 @@ namespace Svrf.Models.Http
         /// <summary>
         /// The type(s) of Media to be returned.
         /// </summary>
-        public List<MediaType> Type { get; set; }
+        public IEnumerable<MediaType> Type { get; set; }
 
         internal IDictionary<string, object> ToDictionary()
         {
             return GetType()
                 .GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
-                .ToDictionary
-                (
-                    propInfo => propInfo.Name,
-                    propInfo => propInfo.GetValue(this)
-                );
+                .Select(propInfo => new KeyValuePair<string, object>(propInfo.Name, propInfo.GetValue(this)))
+                .Where(keyValue => keyValue.Value != null)
+                .ToDictionary(kv => kv.Key, kv => kv.Value);
         }
     }
 }

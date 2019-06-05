@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,11 +63,11 @@
     <Compile Include="Exceptions\UnauthorizedException.cs" />
     <Compile Include="Models\Http\ErrorResponse.cs" />
     <Compile Include="Models\Http\SingleMediaResponse.cs" />
-    <Compile Include="Models\Media\Category.cs" />
+    <Compile Include="Models\Enums\Category.cs" />
     <Compile Include="Models\Http\MediaRequestParams.cs" />
-    <Compile Include="Models\Media\MediaType.cs" />
+    <Compile Include="Models\Enums\MediaType.cs" />
     <Compile Include="Models\Http\MultipleMediaResponse.cs" />
-    <Compile Include="Models\Media\StereoscopicType.cs" />
+    <Compile Include="Models\Enums\StereoscopicType.cs" />
     <Compile Include="Services\DateTimeProvider.cs" />
     <Compile Include="Services\QueryService.cs" />
     <Compile Include="Storage\ITokenStorage.cs" />

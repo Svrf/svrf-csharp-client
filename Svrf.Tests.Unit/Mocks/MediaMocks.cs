@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Svrf.Models.Enums;
 using Svrf.Models.Media;
 
 namespace Svrf.Tests.Unit.Mocks
@@ -18,7 +19,7 @@ namespace Svrf.Tests.Unit.Mocks
             Src = "src",
             Metadata = new MediaMetadata(),
             Title = "title",
-            Type = "photo",
+            Type = MediaType.Photo,
             Url = "url"
         };
     }
