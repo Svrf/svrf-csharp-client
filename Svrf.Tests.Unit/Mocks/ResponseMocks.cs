@@ -14,13 +14,11 @@ namespace Svrf.Tests.Unit.Mocks
 
         internal static SingleMediaResponse SingleMediaResponse = new SingleMediaResponse
         {
-            Success = true,
             Media = MediaMocks.Media
         };
 
         internal static MultipleMediaResponse MultipleMediaResponse = new MultipleMediaResponse
         {
-            Success = true,
             Media = new List<Media> { MediaMocks.Media },
             NextPageNum = 1,
             PageNum = 0

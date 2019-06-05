@@ -45,7 +45,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiMedia.cs" />
+    <Compile Include="Api\AuthTest.cs" />
+    <Compile Include="Api\GetByIdTest.cs" />
+    <Compile Include="ClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
