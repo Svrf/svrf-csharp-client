@@ -10,7 +10,7 @@ namespace Svrf.Models.Http
         /// <summary>
         /// Result media.
         /// </summary>
-        public Media.Media Media { get; internal set; }
+        public Media.Media Media { get; set; }
 
         public override bool Equals(object obj)
         {

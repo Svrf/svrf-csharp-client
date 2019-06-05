@@ -2,7 +2,7 @@
 {
     internal class AuthResponse
     {
-        public string Token { get; internal set; }
-        public int ExpiresIn { get; internal set; }
+        public string Token { get; set; }
+        public int ExpiresIn { get; set; }
     }
 }

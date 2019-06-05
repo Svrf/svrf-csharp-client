@@ -1,5 +1,4 @@
-﻿using Svrf.Models.Media;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Svrf.Models.Http
@@ -12,17 +11,17 @@ namespace Svrf.Models.Http
         /// <summary>
         /// Result media.
         /// </summary>
-        public List<Media.Media> Media { get; internal set; }
+        public List<Media.Media> Media { get; set; }
 
         /// <summary>
         /// The next page to query to see more results, whether or not the next page actually exists.
         /// </summary>
-        public int NextPageNum { get; internal set; }
+        public int NextPageNum { get; set; }
 
         /// <summary>
         /// The current page number.
         /// </summary>
-        public int PageNum { get; internal set; }
+        public int PageNum { get; set; }
 
         public override bool Equals(object obj)
         {
