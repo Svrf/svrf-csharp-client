@@ -1,12 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System.Runtime.Serialization;
 
 namespace Svrf.Tests.Unit.Mocks
 {
     internal enum MockEnum
     {
-        [Description("testEnumField1")]
+        [EnumMember(Value = "testEnumField1")]
         TestEnumFieldOne,
-        [Description("testEnumField2")]
+        [EnumMember(Value = "testEnumField2")]
         TestEnumFieldTwo
     }
 }
