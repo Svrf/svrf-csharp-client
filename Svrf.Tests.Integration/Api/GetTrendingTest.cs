@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using Svrf.Models.Enums;
 using Svrf.Models.Http;
@@ -38,16 +39,16 @@ namespace Svrf.Tests.Integration.Api
             };
             var response = await _svrf.Media.GetTrendingAsync(options);
 
-            Assert.Positive(response.Media.Count);
+            Assert.IsNotEmpty(response.Media);
             Assert.AreEqual(options.PageNum, response.PageNum);
             Assert.AreEqual(options.PageNum + 1, response.NextPageNum);
 
             foreach (var media in response.Media)
             {
-                Assert.AreEqual(true, media.Metadata.HasBlendShapes);
-                Assert.AreEqual(true, media.Metadata.IsFaceFilter);
-                Assert.AreEqual(false, media.Metadata.RequiresBlendShapes);
-                Assert.AreEqual(MediaType.Model3D, media.Type);
+                Assert.AreEqual(options.HasBlendShapes, media.Metadata.HasBlendShapes);
+                Assert.AreEqual(options.IsFaceFilter, media.Metadata.IsFaceFilter);
+                Assert.AreEqual(options.RequiresBlendShapes, media.Metadata.RequiresBlendShapes);
+                Assert.AreEqual(options.Type.First(), media.Type);
             }
         }
     }
