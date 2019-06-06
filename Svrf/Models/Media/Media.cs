@@ -61,7 +61,7 @@ namespace Svrf.Models.Media
                 hashCode = (hashCode * 397) ^ (Canonical != null ? Canonical.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Url != null ? Url.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (EmbedUrl != null ? EmbedUrl.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Type != null ? Type.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ Type.GetHashCode();
                 hashCode = (hashCode * 397) ^ Adult.GetHashCode();
                 hashCode = (hashCode * 397) ^ Width.GetHashCode();
                 hashCode = (hashCode * 397) ^ Height.GetHashCode();

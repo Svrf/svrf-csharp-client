@@ -60,7 +60,8 @@ namespace Svrf.Tests.Integration.Api
         {
             var options = new MediaRequestParams
             {
-                Size = 3,
+                PageNum = 0,
+                Size = 3
             };
             var firstPage = await _svrf.Media.SearchAsync(Query, options);
 
@@ -106,7 +107,7 @@ namespace Svrf.Tests.Integration.Api
 
             foreach (var media in response.Media)
             {
-                Assert.IsTrue(media.Width > options.MinimumWidth);
+                Assert.GreaterOrEqual(media.Width, options.MinimumWidth);
             }
         }
 
