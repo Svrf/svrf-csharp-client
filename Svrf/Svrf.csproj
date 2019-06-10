@@ -68,6 +68,9 @@
     <Compile Include="Models\Enums\MediaType.cs" />
     <Compile Include="Models\Http\MultipleMediaResponse.cs" />
     <Compile Include="Models\Enums\StereoscopicType.cs" />
+    <Compile Include="Models\Media\MediaImages.cs" />
+    <Compile Include="Models\Media\MediaStereo.cs" />
+    <Compile Include="Models\Media\MediaVideos.cs" />
     <Compile Include="Services\DateTimeProvider.cs" />
     <Compile Include="Services\QueryService.cs" />
     <Compile Include="Storage\ITokenStorage.cs" />

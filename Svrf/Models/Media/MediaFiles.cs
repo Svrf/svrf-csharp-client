@@ -5,11 +5,12 @@ namespace Svrf.Models.Media
 {
     public class MediaFiles
     {
-        public Dictionary<string, string> Images { get; set; }
-        public Dictionary<string, string> Videos { get; set; }
-        public Dictionary<string, string> Stereo { get; set; }
+        public MediaImages Images { get; set; }
+        public MediaVideos Videos { get; set; }
+        public MediaStereo Stereo { get; set; }
         public Dictionary<string, string> Gltf { get; set; }
         public string Glb { get; set; }
+
         [JsonProperty("glb-draco")]
         public string GlbDraco { get; set; }
 
