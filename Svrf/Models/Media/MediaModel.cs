@@ -15,6 +15,7 @@ namespace Svrf.Models.Media
         public string Canonical { get; set; }
         public string Url { get; set; }
         public string EmbedUrl { get; set; }
+        public string EmbedHtml { get; set; }
         public MediaType Type { get; set; }
         public bool Adult { get; set; }
         public int? Width { get; set; }
@@ -41,6 +42,7 @@ namespace Svrf.Models.Media
                    && string.Equals(Canonical, other.Canonical)
                    && string.Equals(Url, other.Url)
                    && string.Equals(EmbedUrl, other.EmbedUrl)
+                   && string.Equals(EmbedHtml, other.EmbedHtml)
                    && string.Equals(Type, other.Type)
                    && Adult == other.Adult
                    && Width == other.Width
@@ -61,6 +63,7 @@ namespace Svrf.Models.Media
                 hashCode = (hashCode * 397) ^ (Canonical != null ? Canonical.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Url != null ? Url.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (EmbedUrl != null ? EmbedUrl.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (EmbedHtml != null ? EmbedHtml.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ Type.GetHashCode();
                 hashCode = (hashCode * 397) ^ Adult.GetHashCode();
                 hashCode = (hashCode * 397) ^ Width.GetHashCode();
