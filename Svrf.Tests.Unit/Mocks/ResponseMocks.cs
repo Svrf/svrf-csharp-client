@@ -19,7 +19,7 @@ namespace Svrf.Tests.Unit.Mocks
 
         internal static MultipleMediaResponse MultipleMediaResponse = new MultipleMediaResponse
         {
-            Media = new List<Media> { MediaMocks.Media },
+            Media = new List<MediaModel> { MediaMocks.Media },
             NextPageNum = 1,
             PageNum = 0
         };

@@ -6,7 +6,7 @@ namespace Svrf.Tests.Unit.Mocks
 {
     internal static class MediaMocks
     {
-        internal static Media Media = new Media
+        internal static MediaModel Media = new MediaModel
         {
             Id = "1",
             Adult = false,

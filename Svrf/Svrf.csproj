@@ -71,7 +71,7 @@
     <Compile Include="Services\DateTimeProvider.cs" />
     <Compile Include="Services\QueryService.cs" />
     <Compile Include="Storage\ITokenStorage.cs" />
-    <Compile Include="Models\Media\Media.cs" />
+    <Compile Include="Models\Media\MediaModel.cs" />
     <Compile Include="Models\Media\MediaFiles.cs" />
     <Compile Include="Models\Media\MediaMetadata.cs" />
     <Compile Include="Services\TokenService.cs" />

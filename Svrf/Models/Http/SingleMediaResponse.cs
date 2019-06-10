@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Svrf.Models.Media;
 
 namespace Svrf.Models.Http
 {
@@ -10,7 +11,7 @@ namespace Svrf.Models.Http
         /// <summary>
         /// Result media.
         /// </summary>
-        public Media.Media Media { get; set; }
+        public MediaModel Media { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -26,7 +27,7 @@ namespace Svrf.Models.Http
 
         public override int GetHashCode()
         {
-            return 284070683 + EqualityComparer<Media.Media>.Default.GetHashCode(Media);
+            return 284070683 + EqualityComparer<MediaModel>.Default.GetHashCode(Media);
         }
     }
 }

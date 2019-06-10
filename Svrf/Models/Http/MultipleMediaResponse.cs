@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Svrf.Models.Media;
 
 namespace Svrf.Models.Http
 {
@@ -11,7 +12,7 @@ namespace Svrf.Models.Http
         /// <summary>
         /// Result media.
         /// </summary>
-        public List<Media.Media> Media { get; set; }
+        public List<MediaModel> Media { get; set; }
 
         /// <summary>
         /// The next page to query to see more results, whether or not the next page actually exists.
@@ -40,7 +41,7 @@ namespace Svrf.Models.Http
         public override int GetHashCode()
         {
             var hashCode = -685741926;
-            hashCode = hashCode * -1521134295 + EqualityComparer<List<Media.Media>>.Default.GetHashCode(Media);
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<MediaModel>>.Default.GetHashCode(Media);
             hashCode = hashCode * -1521134295 + NextPageNum.GetHashCode();
             hashCode = hashCode * -1521134295 + PageNum.GetHashCode();
             return hashCode;

@@ -4,7 +4,7 @@ using Svrf.Models.Enums;
 
 namespace Svrf.Models.Media
 {
-    public class Media
+    public class MediaModel
     {
         public string Id { get; set; }
         public string Src { get; set; }
@@ -25,7 +25,7 @@ namespace Svrf.Models.Media
 
         public override bool Equals(object obj)
         {
-            var other = obj as Media;
+            var other = obj as MediaModel;
 
             if (other == null)
             {
