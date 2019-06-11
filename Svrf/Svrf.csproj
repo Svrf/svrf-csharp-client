@@ -79,7 +79,7 @@
     <Compile Include="Models\Media\MediaMetadata.cs" />
     <Compile Include="Services\TokenService.cs" />
     <Compile Include="Storage\MemoryTokenStorage.cs" />
-    <Compile Include="SvrfApi.cs" />
+    <Compile Include="SvrfClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

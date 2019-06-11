@@ -14,6 +14,7 @@ namespace Svrf.Api
         private readonly TokenService _tokenService;
         private readonly string _apiKey;
 
+        private readonly object _authRequestLock = new object();
         private Task<AuthResponse> _authTask;
 
         internal AuthApi(IHttpClient httpClient, TokenService tokenService, string apiKey)
@@ -35,11 +36,17 @@ namespace Svrf.Api
                 throw new ArgumentException("Api Key should be provided for authentication", nameof(_apiKey));
             }
 
-            var requestBody = new AuthRequestBody() { ApiKey = _apiKey };
+            var requestBody = new AuthRequestBody { ApiKey = _apiKey };
 
-            if (_authTask == null)
+            // Since we have to call it with Task.Run in the SvrfClient, it can be accessed from
+            // multiple threads. Therefore, two threads can enter this code before _httpClient.PostAsync
+            // is completed. Locking is needed to avoid this kind of race condition in this method.
+            lock (_authRequestLock)
             {
-                _authTask = _httpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
+                if (_authTask == null)
+                {
+                    _authTask = _httpClient.PostAsync<AuthResponse>("app/authenticate", requestBody);
+                }
             }
 
             try
