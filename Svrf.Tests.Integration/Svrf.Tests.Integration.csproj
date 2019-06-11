@@ -50,6 +50,7 @@
     <Compile Include="Api\GetTrendingTest.cs" />
     <Compile Include="Api\SearchTest.cs" />
     <Compile Include="ClientFactory.cs" />
+    <Compile Include="Models\PropertiesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

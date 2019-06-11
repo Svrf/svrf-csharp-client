@@ -1,11 +1,8 @@
 
 ﻿using System.Linq;
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+ using System.Threading.Tasks;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
-using Svrf.Models.Enums;
+ using Svrf.Models.Enums;
 using Svrf.Models.Http;
 
 namespace Svrf.Tests.Integration.Api
@@ -76,7 +73,7 @@ namespace Svrf.Tests.Integration.Api
         {
             var options = new MediaRequestParams
             {
-                Type = new MediaType[] { MediaType.Photo }
+                Type = new [] { MediaType.Photo }
             };
 
             var response = await _svrf.Media.GetTrendingAsync(options);

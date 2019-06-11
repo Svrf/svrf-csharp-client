@@ -7,12 +7,19 @@ namespace Svrf.Tests.Integration.Api
     [TestFixture]
     public class GetByIdTest
     {
+        private SvrfClient _svrf;
+
+        [SetUp]
+        public void Init()
+        {
+            _svrf = ClientFactory.GetClient();
+        }
+
         [Test]
         public async Task GetById_WithValidId_DoesNotThrowAnything()
         {
             var id = 730873;
-            var svrf = ClientFactory.GetClient();
-            var mediaResponse = await svrf.Media.GetByIdAsync(id);
+            var mediaResponse = await _svrf.Media.GetByIdAsync(id);
 
             Assert.AreEqual(mediaResponse.Media.Id, id.ToString());
             Assert.NotNull(mediaResponse.Media.Title);
@@ -23,8 +30,7 @@ namespace Svrf.Tests.Integration.Api
         {
             Assert.ThrowsAsync(typeof(MediaNotFoundException), async () =>
             {
-                var svrf = ClientFactory.GetClient();
-                await svrf.Media.GetByIdAsync("invalid id");
+                await _svrf.Media.GetByIdAsync("invalid id");
             });
         }
     }
