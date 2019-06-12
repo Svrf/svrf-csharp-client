@@ -1,105 +1,26 @@
-# SVRF.Client - the C# client library for the SVRF API
+# Svrf C# SDK
 
-For more information, please visit [https://github.com/svrf/svrf-api](https://github.com/svrf/svrf-api)
+Svrf's API allows you to supercharge your project or app with the first and largest search engine for immersive experiences. We make it simple for any developer to incorporate highly immersive experiences with all kinds of applications: virtual reality, augmented reality, mixed reality, mobile, and web. See our [C# Quick Start Guide][] to get started!
 
-## Getting Started
+### Features
 
-SVRF's API allows you to supercharge your project or app with the first and largest search engine for immersive experiences. We make it simple for any developer to incorporate highly immersive experiences with all kinds of applications: virtual reality, augmented reality, mixed reality, mobile, and web.
+__Simple Authentication__: Easily manage your Svrf API authentication token.
 
-The SVRF API Documentation is available at <https://developers.svrf.com>.
+__Comprehensive Search__: [Search][] the entirety of the Svrf immersive experience catalog. Further refine what you're looking for with a variety of [Search Parameters][], allowing you to search for 360 photos, videos, Face Filters, or Media that is of a certain resolution.
 
-## Frameworks supported
-- .NET 4.0 or later
-- Windows Phone 7.1 (Mango)
+__Trending Media__: Getting the currently [Trending Media][] on Svrf is a breeze. Trending Media are Media that our curators have deemed to be some of the most interesting on the platform. You can further constrain the trending Media with [Trending Media Parameters][]. 
 
-## Installation
-```
-Install-Package SVRF.Client
-```
+## Contributing
 
-Then you can use the namespaces:
-```csharp
-using SVRF.Client.Api;
-using SVRF.Client.Client;
-using SVRF.Client.Model;
-```
-
-## Getting Started
-
-```csharp
-using System;
-using System.Diagnostics;
-using SVRF.Client.Api;
-using SVRF.Client.Client;
-using SVRF.Client.Model;
-
-namespace Example
-{
-    public class Example
-    {
-        public void main()
-        {
-
-            var apiInstance = new AuthenticateApi();
-            var body = new Body(); // Body | 
-
-            try
-            {
-                // Authenticate application
-                AuthResponse result = apiInstance.Authenticate(body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AuthenticateApi.Authenticate: " + e.Message );
-            }
-
-        }
-    }
-}
-```
-
-## Documentation for API Endpoints
-
-All URIs are relative to *https://api.svrf.com/v1*
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*AuthenticateApi* | [**Authenticate**](docs/AuthenticateApi.md#authenticate) | **POST** /app/authenticate | Authenticate application
-*MediaApi* | [**GetById**](docs/MediaApi.md#getbyid) | **GET** /vr/{id} | Media by ID Endpoint
-*MediaApi* | [**GetTrending**](docs/MediaApi.md#gettrending) | **GET** /vr/trending | Trending Endpoint
-*MediaApi* | [**Search**](docs/MediaApi.md#search) | **GET** /vr/search | Search Endpoint
+We welcome contributions of any kind including new features, bug fixes, and documentation improvements.  If it is a major change, please open an issue describing what you want to build so that we can discuss how to move forward. Otherwise, go ahead and open a pull request for minor changes such as typo fixes and one-liners.
 
 
-## Documentation for Models
+## Running Tests
 
- - [Model.APIKey](docs/APIKey.md)
- - [Model.Body](docs/Body.md)
- - [Model.Category](docs/Category.md)
- - [Model.ErrorResponse](docs/ErrorResponse.md)
- - [Model.Media](docs/Media.md)
- - [Model.MediaFiles](docs/MediaFiles.md)
- - [Model.MediaImages](docs/MediaImages.md)
- - [Model.MediaMetadata](docs/MediaMetadata.md)
- - [Model.MediaStereo](docs/MediaStereo.md)
- - [Model.MediaType](docs/MediaType.md)
- - [Model.MediaVideos](docs/MediaVideos.md)
- - [Model.StereoscopicType](docs/StereoscopicType.md)
- - [Model.SuccessResponse](docs/SuccessResponse.md)
- - [Model.AuthResponse](docs/AuthResponse.md)
- - [Model.PaginationResponse](docs/PaginationResponse.md)
- - [Model.RateLimitResponse](docs/RateLimitResponse.md)
- - [Model.SingleMediaResponse](docs/SingleMediaResponse.md)
- - [Model.SearchMediaResponse](docs/SearchMediaResponse.md)
- - [Model.TrendingResponse](docs/TrendingResponse.md)
+There're unit and integration tests in `Svrf.Tests.Unit` and `Svrf.Tests.Integration` projects respectively. Make sure tests pass before submitting Pull Requests.
 
-
-## Documentation for Authorization
-
-
-### XAppToken
-
-- **Type**: API key
-- **API key parameter name**: x-app-token
-- **Location**: HTTP header
-
+[C# Quick Start Guide]: https://docs.svrf.com/docs/web
+[Search]: https://docs.svrf.com/reference/csharp-mediaapi#csharp-search
+[Search Parameters]: https://docs.svrf.com/referencecsharpjs-mediaapi#csharp-search
+[Trending Media]: https://docs.svrf.com/reference/csharp-mediaapi#csharp-gettrending
+[Trending Media Parameters]: https://docs.svrf.com/reference/csharp-mediaapi#section-parameters
