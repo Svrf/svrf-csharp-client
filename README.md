@@ -19,8 +19,8 @@ We welcome contributions of any kind including new features, bug fixes, and docu
 
 There're unit and integration tests in `Svrf.Tests.Unit` and `Svrf.Tests.Integration` projects respectively. Make sure tests pass before submitting Pull Requests.
 
-[C# Quick Start Guide]: https://docs.svrf.com/docs/web
+[C# Quick Start Guide]: https://docs.svrf.com/docs/csharp
 [Search]: https://docs.svrf.com/reference/csharp-mediaapi#csharp-search
-[Search Parameters]: https://docs.svrf.com/referencecsharpjs-mediaapi#csharp-search
+[Search Parameters]: https://docs.svrf.com/reference/csharp-requests#csharp-mediarequestparams
 [Trending Media]: https://docs.svrf.com/reference/csharp-mediaapi#csharp-gettrending
-[Trending Media Parameters]: https://docs.svrf.com/reference/csharp-mediaapi#section-parameters
+[Trending Media Parameters]: https://docs.svrf.com/reference/csharp-requests#csharp-mediarequestparams
