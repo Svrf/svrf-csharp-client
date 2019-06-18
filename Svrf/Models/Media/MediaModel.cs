@@ -10,7 +10,7 @@ namespace Svrf.Models.Media
         public string Src { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<string> Authors { get; set; }
+        public IEnumerable<string> Authors { get; set; }
         public string Site { get; set; }
         public string Canonical { get; set; }
         public string Url { get; set; }

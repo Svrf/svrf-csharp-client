@@ -22,7 +22,7 @@ namespace Svrf.Tests.Integration.Api
         public async Task GetTrending_NoParams_LoadsMedia()
         {
             var response = await _svrf.Media.GetTrendingAsync();
-            Assert.Positive(response.Media.Count);
+            Assert.Positive(response.Media.Count());
         }
 
         [Test]
@@ -124,8 +124,8 @@ namespace Svrf.Tests.Integration.Api
             options.PageNum = 1;
             var secondPageResponse = await _svrf.Media.GetTrendingAsync(options);
             
-            Assert.AreEqual(firstPageResponse.Media.Count, options.Size);
-            Assert.AreEqual(secondPageResponse.Media.Count, options.Size);
+            Assert.AreEqual(firstPageResponse.Media.Count(), options.Size);
+            Assert.AreEqual(secondPageResponse.Media.Count(), options.Size);
         }
 
         [Test]

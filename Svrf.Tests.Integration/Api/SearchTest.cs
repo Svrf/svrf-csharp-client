@@ -73,8 +73,8 @@ namespace Svrf.Tests.Integration.Api
             Assert.AreEqual(1, secondPage.PageNum);
             Assert.AreEqual(2, secondPage.NextPageNum);
 
-            Assert.AreEqual(options.Size, firstPage.Media.Count);
-            Assert.AreEqual(options.Size, secondPage.Media.Count);
+            Assert.AreEqual(options.Size, firstPage.Media.Count());
+            Assert.AreEqual(options.Size, secondPage.Media.Count());
 
             var firstPageIds = firstPage.Media.Select(m => m.Id);
             var secondPageIds = secondPage.Media.Select(m => m.Id);
