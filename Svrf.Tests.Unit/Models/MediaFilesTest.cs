@@ -7,6 +7,7 @@ namespace Svrf.Tests.Unit.Models
     [TestFixture]
     public class MediaFilesTest
     {
+        private const string GltfFileName = "DogeBlender2.gltf";
         private const string GltfUrl = "https://www.svrf.com/storage/svrf-models/676167/gltf/DogeBlender2.gltf";
 
         private readonly Dictionary<string, string> _nonGltfFiles = new Dictionary<string, string>
@@ -45,7 +46,7 @@ namespace Svrf.Tests.Unit.Models
         public void GltfMain_HasGltfFiles_ReturnsMainFile()
         {
             var gltfFiles = new Dictionary<string, string>(_nonGltfFiles);
-            gltfFiles.Add("DogeBlender2.gltf", GltfUrl);
+            gltfFiles.Add(GltfFileName, GltfUrl);
 
             var files = new MediaFiles {Gltf = gltfFiles};
 
@@ -55,14 +56,19 @@ namespace Svrf.Tests.Unit.Models
         [Test]
         public void GltfMain_UpperCaseValues_ReturnsMainFile()
         {
-            var gltfUrl = GltfUrl.Replace("gltf", "GLTF");
+            var gltfUrl = GltfExtensionToUpper(GltfUrl);
 
             var gltfFiles = new Dictionary<string, string>(_nonGltfFiles);
-            gltfFiles.Add("DogeBlender2.GLTF", gltfUrl);
+            gltfFiles.Add(GltfExtensionToUpper(GltfFileName), gltfUrl);
 
             var files = new MediaFiles { Gltf = gltfFiles };
 
             Assert.AreEqual(gltfUrl, files.GltfMain);
+        }
+
+        private string GltfExtensionToUpper(string s)
+        {
+            return s.Replace("gltf", "GLTF");
         }
     }
 }
