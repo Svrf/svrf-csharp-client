@@ -51,5 +51,18 @@ namespace Svrf.Tests.Unit.Models
 
             Assert.AreEqual(GltfUrl, files.GltfMain);
         }
+
+        [Test]
+        public void GltfMain_UpperCaseValues_ReturnsMainFile()
+        {
+            var gltfUrl = GltfUrl.Replace("gltf", "GLTF");
+
+            var gltfFiles = new Dictionary<string, string>(_nonGltfFiles);
+            gltfFiles.Add("DogeBlender2.GLTF", gltfUrl);
+
+            var files = new MediaFiles { Gltf = gltfFiles };
+
+            Assert.AreEqual(gltfUrl, files.GltfMain);
+        }
     }
 }

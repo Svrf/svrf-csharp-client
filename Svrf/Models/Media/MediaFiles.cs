@@ -19,7 +19,7 @@ namespace Svrf.Models.Media
         {
             get
             {
-                var fileName = Gltf?.Keys.FirstOrDefault(k => k.EndsWith(".gltf"));
+                var fileName = Gltf?.Keys.FirstOrDefault(k => k.ToLower().EndsWith(".gltf"));
                 return fileName == null ? null : Gltf[fileName];
             }
         }
