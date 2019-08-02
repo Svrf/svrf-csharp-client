@@ -72,7 +72,8 @@
     <Compile Include="Mocks\MockEnum.cs" />
     <Compile Include="Mocks\RequestMocks.cs" />
     <Compile Include="Mocks\ResponseMocks.cs" />
-    <Compile Include="Models\Http\HttpRequestParamsTest.cs" />
+    <Compile Include="Models\HttpRequestParamsTest.cs" />
+    <Compile Include="Models\MediaFilesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\QueryServiceTest.cs" />
     <Compile Include="Services\TokenServiceTest.cs" />

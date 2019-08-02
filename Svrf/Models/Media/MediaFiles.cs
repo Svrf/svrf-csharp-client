@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Svrf.Models.Media
@@ -8,11 +9,20 @@ namespace Svrf.Models.Media
         public MediaImages Images { get; set; }
         public MediaVideos Videos { get; set; }
         public MediaStereo Stereo { get; set; }
-        public Dictionary<string, string> Gltf { get; set; }
-        public string Glb { get; set; }
 
         [JsonProperty("glb-draco")]
         public string GlbDraco { get; set; }
+        public string Glb { get; set; }
+
+        public Dictionary<string, string> Gltf { get; set; }
+        public string GltfMain
+        {
+            get
+            {
+                var fileName = Gltf?.Keys.FirstOrDefault(k => k.EndsWith(".gltf"));
+                return fileName == null ? null : Gltf[fileName];
+            }
+        }
 
         public override bool Equals(object obj)
         {

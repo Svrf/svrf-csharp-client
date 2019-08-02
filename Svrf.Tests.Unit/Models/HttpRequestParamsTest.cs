@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Svrf.Models.Http;
 
-namespace Svrf.Tests.Unit.Models.Http
+namespace Svrf.Tests.Unit.Models
 {
     [TestFixture]
     public class HttpRequestParamsTest
