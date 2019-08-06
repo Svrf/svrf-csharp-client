@@ -113,7 +113,9 @@ namespace Svrf.Tests.Integration.Models
 
             CheckString(files.Glb);
             CheckString(files.GlbDraco);
+
             Assert.IsNotEmpty(files.Gltf);
+            CheckString(files.GltfMain);
         }
 
         private void VerifyBasicFields(MediaModel media)
