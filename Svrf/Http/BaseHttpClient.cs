@@ -5,20 +5,22 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Svrf.Exceptions;
-using Svrf.Services;
 using System.Net;
 using Svrf.Models.Http;
+using Svrf.Services.Interfaces;
 
 namespace Svrf.Http
 {
     internal class BaseHttpClient : IHttpClient
     {
         protected readonly HttpClient _httpClient;
+        protected readonly IQueryService _queryService;
 
-        internal BaseHttpClient(HttpClient httpClient)
+        internal BaseHttpClient(HttpClient httpClient, IQueryService queryService)
         {
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri("https://api.svrf.com/v1/");
+            _queryService = queryService;
         }
 
         public virtual async Task<T> GetAsync<T>(string uri, IDictionary<string, object> requestParams = null)
@@ -44,7 +46,7 @@ namespace Svrf.Http
         {
             if (requestParams == null) return uri;
 
-            var queryString = string.Join("&", QueryService.Build(requestParams));
+            var queryString = string.Join("&", _queryService.Build(requestParams));
 
             return $"{uri}?{queryString}";
         }

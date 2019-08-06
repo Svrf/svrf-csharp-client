@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net.Http;
-using Svrf.Api;
-using Svrf.Services;
+using Svrf.Api.Interfaces;
+using Svrf.Services.Interfaces;
 
 namespace Svrf.Http
 {
     internal class AppTokenHttpClient : BaseHttpClient
     {
-        private readonly AuthApi _authApi;
-        private readonly TokenService _tokenService;
+        private readonly IAuthApi _authApi;
+        private readonly ITokenService _tokenService;
 
-        internal AppTokenHttpClient(AuthApi authApi, TokenService tokenService, HttpClient httpClient) : base(httpClient)
+        internal AppTokenHttpClient(IAuthApi authApi, ITokenService tokenService, HttpClient httpClient, IQueryService queryService)
+            : base(httpClient, queryService)
         {
             _authApi = authApi;
             _tokenService = tokenService;

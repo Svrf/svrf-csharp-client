@@ -1,17 +1,18 @@
 ﻿using System.Runtime.CompilerServices;
 using Svrf.Models;
+using Svrf.Services.Interfaces;
 using Svrf.Storage;
 
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 namespace Svrf.Services
 {
-    internal class TokenService
+    internal class TokenService : ITokenService
     {
         private ITokenStorage TokenStorage { get; }
-        private DateTimeProvider DateTimeProvider { get; }
+        private IDateTimeService DateTimeProvider { get; }
 
-        public virtual bool IsTokenValid
+        public bool IsTokenValid
         {
             get
             {
@@ -23,13 +24,13 @@ namespace Svrf.Services
                 }
 
                 var isTokenValid = !string.IsNullOrEmpty(appTokenInfo.AppToken)
-                    && (DateTimeProvider.Compare(appTokenInfo.ExpirationTime, DateTimeProvider.Now) > 0);
+                    && (DateTimeService.Compare(appTokenInfo.ExpirationTime, DateTimeProvider.Now) > 0);
 
                 return isTokenValid;
             }
         }
 
-        public TokenService(ITokenStorage tokenStorage, DateTimeProvider dateTimeProvider)
+        public TokenService(ITokenStorage tokenStorage, IDateTimeService dateTimeProvider)
         {
             TokenStorage = tokenStorage;
             DateTimeProvider = dateTimeProvider;

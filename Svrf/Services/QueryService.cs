@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Svrf.Extensions;
+using Svrf.Services.Interfaces;
 
 namespace Svrf.Services
 {
-    internal class QueryService
+    internal class QueryService : IQueryService
     {
-        internal static string Build(IDictionary<string, object> requestParams)
+        public string Build(IDictionary<string, object> requestParams)
         {
             var properties = requestParams.Select(keyValue =>
             {

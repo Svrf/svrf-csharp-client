@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Svrf.Api.Interfaces;
 using Svrf.Exceptions;
 using Svrf.Http;
 using Svrf.Models.Http;
@@ -10,7 +11,7 @@ namespace Svrf.Api
     /// <summary>
     /// Represents media-related endpoints.
     /// </summary>
-    public class MediaApi
+    public class MediaApi : IMediaApi
     {
         private readonly IHttpClient _httpClient;
 

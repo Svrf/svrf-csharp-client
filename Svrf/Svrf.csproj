@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AuthApi.cs" />
+    <Compile Include="Api\Interfaces\IAuthApi.cs" />
+    <Compile Include="Api\Interfaces\IMediaApi.cs" />
     <Compile Include="Exceptions\ApiKeyNotFoundException.cs" />
     <Compile Include="Exceptions\HttpException.cs" />
     <Compile Include="Exceptions\ServerErrorException.cs" />
@@ -71,7 +73,10 @@
     <Compile Include="Models\Media\MediaImages.cs" />
     <Compile Include="Models\Media\MediaStereo.cs" />
     <Compile Include="Models\Media\MediaVideos.cs" />
-    <Compile Include="Services\DateTimeProvider.cs" />
+    <Compile Include="Services\DateTimeService.cs" />
+    <Compile Include="Services\Interfaces\IDateTimeService.cs" />
+    <Compile Include="Services\Interfaces\IQueryService.cs" />
+    <Compile Include="Services\Interfaces\ITokenService.cs" />
     <Compile Include="Services\QueryService.cs" />
     <Compile Include="Storage\ITokenStorage.cs" />
     <Compile Include="Models\Media\MediaModel.cs" />

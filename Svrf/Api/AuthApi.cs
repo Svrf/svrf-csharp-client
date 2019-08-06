@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using Svrf.Api.Interfaces;
 using Svrf.Exceptions;
 using Svrf.Http;
 using Svrf.Models.Http;
-using Svrf.Services;
+using Svrf.Services.Interfaces;
 
 namespace Svrf.Api
 {
-    internal class AuthApi
+    internal class AuthApi : IAuthApi
     {
         private readonly IHttpClient _httpClient;
-        private readonly TokenService _tokenService;
+        private readonly ITokenService _tokenService;
         private readonly string _apiKey;
 
         private readonly object _authRequestLock = new object();
         private Task<AuthResponse> _authTask;
 
-        internal AuthApi(IHttpClient httpClient, TokenService tokenService, string apiKey)
+        internal AuthApi(IHttpClient httpClient, ITokenService tokenService, string apiKey)
         {
             _httpClient = httpClient;
             _tokenService = tokenService;
             _apiKey = apiKey;
         }
 
-        internal async Task AuthenticateAsync()
+        public async Task AuthenticateAsync()
         {
             if (_tokenService.IsTokenValid)
             {

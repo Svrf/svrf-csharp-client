@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Svrf.Models;
 using Svrf.Services;
+using Svrf.Services.Interfaces;
 using Svrf.Storage;
 
 namespace Svrf.Tests.Unit.Services
@@ -13,7 +14,7 @@ namespace Svrf.Tests.Unit.Services
         public static DateTime Now = DateTime.Now;
 
         public Mock<ITokenStorage> TokenStorage = new Mock<ITokenStorage>();
-        internal Mock<DateTimeProvider> DateTimeProvider = new Mock<DateTimeProvider>();
+        internal Mock<IDateTimeService> DateTimeProvider = new Mock<IDateTimeService>();
 
         internal TokenService TokenService { get; set; }
 
