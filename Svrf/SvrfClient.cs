@@ -8,6 +8,7 @@ using Newtonsoft.Json.Serialization;
 using Svrf.Storage;
 using Svrf.Http;
 using Svrf.Api;
+using Svrf.Api.Interfaces;
 using Svrf.Models;
 using Svrf.Services;
 
@@ -21,7 +22,7 @@ namespace Svrf
     /// </summary>
     public class SvrfClient
     {
-        private AuthApi Auth { get; }
+        private IAuthApi Auth { get; }
 
         /// <summary>
         /// MediaApi instance that represents media-related endpoints.
@@ -45,12 +46,12 @@ namespace Svrf
 
             var isManualAuthentication = options?.IsManualAuthentication ?? false;
             var tokenStorage = options?.Storage ?? new MemoryTokenStorage();
-            var tokenService = new TokenService(tokenStorage, new DateTimeProvider());
-            var httpClient = new BaseHttpClient(new HttpClient());
+            var tokenService = new TokenService(tokenStorage, new DateTimeService());
+            var httpClient = new BaseHttpClient(new HttpClient(), new QueryService());
 
             Auth = new AuthApi(httpClient, tokenService, apiKey);
 
-            var appTokenHttpClient = new AppTokenHttpClient(Auth, tokenService, new HttpClient());
+            var appTokenHttpClient = new AppTokenHttpClient(Auth, tokenService, new HttpClient(), new QueryService());
 
             Media = new MediaApi(appTokenHttpClient);
 

@@ -5,8 +5,7 @@ using NUnit.Framework;
 using Svrf.Api;
 using Svrf.Http;
 using Svrf.Models.Http;
-using Svrf.Services;
-using Svrf.Storage;
+using Svrf.Services.Interfaces;
 
 namespace Svrf.Tests.Unit.Api
 {
@@ -16,10 +15,7 @@ namespace Svrf.Tests.Unit.Api
         private const string ApiKey = "api key";
 
         private readonly Mock<IHttpClient> _mockHttpClient = new Mock<IHttpClient>();
-        private readonly Mock<TokenService> _mockTokenService = new Mock<TokenService>(
-            new Mock<ITokenStorage>().Object,
-            new Mock<DateTimeProvider>().Object
-        );
+        private readonly Mock<ITokenService> _mockTokenService = new Mock<ITokenService>();
 
         private AuthApi _authApi;
 

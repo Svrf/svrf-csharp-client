@@ -1,21 +1,22 @@
 ﻿using System.Runtime.CompilerServices;
 using Svrf.Models;
+using Svrf.Services.Interfaces;
 using Svrf.Storage;
 
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 namespace Svrf.Services
 {
-    internal class TokenService
+    internal class TokenService : ITokenService
     {
-        private ITokenStorage TokenStorage { get; }
-        private DateTimeProvider DateTimeProvider { get; }
+        private readonly ITokenStorage _tokenStorage;
+        private readonly IDateTimeService _dateTimeProvider;
 
-        public virtual bool IsTokenValid
+        public bool IsTokenValid
         {
             get
             {
-                var appTokenInfo = TokenStorage.Get();
+                var appTokenInfo = _tokenStorage.Get();
 
                 if (appTokenInfo == null)
                 {
@@ -23,33 +24,33 @@ namespace Svrf.Services
                 }
 
                 var isTokenValid = !string.IsNullOrEmpty(appTokenInfo.AppToken)
-                    && (DateTimeProvider.Compare(appTokenInfo.ExpirationTime, DateTimeProvider.Now) > 0);
+                    && (DateTimeService.Compare(appTokenInfo.ExpirationTime, _dateTimeProvider.Now) > 0);
 
                 return isTokenValid;
             }
         }
 
-        public TokenService(ITokenStorage tokenStorage, DateTimeProvider dateTimeProvider)
+        public TokenService(ITokenStorage tokenStorage, IDateTimeService dateTimeProvider)
         {
-            TokenStorage = tokenStorage;
-            DateTimeProvider = dateTimeProvider;
+            _tokenStorage = tokenStorage;
+            _dateTimeProvider = dateTimeProvider;
         }
 
-        public string GetAppToken() => TokenStorage.Get().AppToken;
+        public string GetAppToken() => _tokenStorage.Get().AppToken;
 
         public void SetAppTokenInfo(string token, int expiresIn)
         {
-            var expirationTime = DateTimeProvider.Now.AddSeconds(expiresIn);
+            var expirationTime = _dateTimeProvider.Now.AddSeconds(expiresIn);
             var appTokenInfo = new AppTokenInfo(token, expirationTime);
 
-            TokenStorage.Set(appTokenInfo);
+            _tokenStorage.Set(appTokenInfo);
         }
 
         public void ClearAppTokenInfo()
         {
-            TokenStorage.Clear();
+            _tokenStorage.Clear();
         }
 
-        public AppTokenInfo GetAppTokenInfo() => TokenStorage.Get();
+        public AppTokenInfo GetAppTokenInfo() => _tokenStorage.Get();
     }
 }
